@@ -1,0 +1,34 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Tadam Web Framework
+    link(rel='icon', type='image/png', href='img/favicon.png')
+    meta(name='theme-color', content='#838383')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no')
+    meta(name='author', content='Andros Fenollosa')
+    meta(name='generator', content='Tadam')
+    meta(name='keywords', content='Clojure, Web, Framework, template')
+    meta(name='description', content='Magic Web development with Clojure, simple by default.')
+    meta(property='og:image', content='img/tadam-opengraph.png')
+    meta(property='og:title', content='Tadam Web Framework')
+    meta(property='og:type', content='website')
+    meta(property='og:url', content='img/tadam-opengraph.png')
+    meta(name='twitter:card', content='summary')
+    meta(name='twitter:creator', content='@androsfenollosa')
+    meta(property='og:image:type', content='image/png')
+    meta(property='og:image:width', content='400')
+    meta(property='og:image:height', content='300')
+    meta(property='og:image:alt', content='Logo Tadam')
+    link(href='sass/mobile.sass', rel='stylesheet', media='all and (max-width: 600px)')
+    link(href='sass/desktop.sass', rel='stylesheet', media='all and (min-width: 600px)')
+  body
+    .landing
+      .container.landing__grid
+        .landing__logo
+          img.landing__logo-img(src='img/tadam-logo.svg')
+        .landing__titles
+          h2.landing__subtitle Magic Web development with Clojure, simple by default
+          h1.landing__title Tadam Web Framework
+    aside.aside
+    main.main
