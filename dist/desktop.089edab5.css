@@ -359,17 +359,24 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0 1rem;
 }
 
+@keyframes aniSlideLanding {
+  from {
+    background-position-x: -100vw;
+  }
+  to {
+    background-position-x: 0;
+  }
+}
 .landing {
-  background: #f4f1bb;
+  min-height: 100vh;
+  background: #6c3;
   text-align: center;
-  color: #63aa32;
-  background-color: #DFDBE5;
-  background-image: url("data:image/svg+xml,%3Csvg width='84' height='16' viewBox='0 0 84 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M78 7V4h-2v3h-3v2h3v3h2V9h3V7h-3zM30 7V4h-2v3h-3v2h3v3h2V9h3V7h-3zM10 0h2v16h-2V0zm6 0h4v16h-4V0zM2 0h4v16H2V0zm50 0h2v16h-2V0zM38 0h2v16h-2V0zm28 0h2v16h-2V0zm-8 0h6v16h-6V0zM42 0h6v16h-6V0z' fill='%239C92AC' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+  color: #fafffd;
 }
 .landing__grid {
   display: grid;
   min-height: 100vh;
-  grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(2, 1fr);
 }
 .landing__logo {
   grid-column: 1/2;
@@ -379,7 +386,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
 }
 .landing__logo-img {
-  min-width: 10rem;
+  max-width: 15rem;
 }
 .landing__titles {
   grid-column: 2/3;
@@ -394,6 +401,42 @@ h1, h2, h3, h4, h5, h6 {
 }
 .landing__subtitle {
   font-size: 1.3rem;
+}
+.landing__background {
+  position: relative;
+  z-index: 100;
+  animation-name: aniSlideLanding;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  background-image: linear-gradient(-60deg, rgba(102, 204, 51, 0.7) 50%, transparent 50%);
+  background-repeat: no-repeat;
+  background-size: 200vw auto;
+  background-color: #09f;
+}
+.landing__background::before, .landing__background::after {
+  display: block;
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(-60deg, rgba(102, 204, 51, 0.7) 50%, transparent 50%);
+  background-repeat: no-repeat;
+  background-size: 200vw auto;
+  animation-name: aniSlideLanding;
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+.landing__background::after {
+  z-index: -2;
+  animation-duration: 5s;
+  animation-direction: alternate;
 }
 
 /*# sourceMappingURL=/desktop.089edab5.css.map */

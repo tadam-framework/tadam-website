@@ -1,13 +1,18 @@
+@keyframes aniSlideLanding
+    from
+      background-position-x: -100vw
+    to
+      background-position-x: 0
+
 .landing
-  background: $color-yellow
+  min-height: 100vh
+  background: $color-green
   text-align: center
-  color: $color-darkgreen
-  background-color: #DFDBE5
-  background-image: url("data:image/svg+xml,%3Csvg width='84' height='16' viewBox='0 0 84 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M78 7V4h-2v3h-3v2h3v3h2V9h3V7h-3zM30 7V4h-2v3h-3v2h3v3h2V9h3V7h-3zM10 0h2v16h-2V0zm6 0h4v16h-4V0zM2 0h4v16H2V0zm50 0h2v16h-2V0zM38 0h2v16h-2V0zm28 0h2v16h-2V0zm-8 0h6v16h-6V0zM42 0h6v16h-6V0z' fill='%239C92AC' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E")
+  color: $color-white
   &__grid
     display: grid
     min-height: 100vh
-    grid-template-columns: repeat(2, auto)
+    grid-template-columns: repeat(2, 1fr)
   &__logo
     grid-column: 1 / 2
     grid-row: 1 / 2
@@ -15,7 +20,7 @@
     justify-content: center
     align-items: center
     &-img
-      min-width: 10rem
+      max-width: 15rem
   &__titles
     grid-column: 2 / 3
     grid-row: 1 / 2
@@ -27,3 +32,35 @@
     margin: 0
   &__subtitle
     font-size: 1.3rem
+  &__background
+    position: relative
+    z-index: 100
+    animation:
+      name: aniSlideLanding
+      duration: 3s
+      timing-function: ease-in-out
+      iteration-count: infinite
+      direction: alternate
+    @include backgroundLanding()
+    background-color: $color-blue
+    &::before, &::after
+      display: block
+      content: ''
+      position: absolute
+      z-index: -1
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      @include backgroundLanding()
+      animation:
+        name: aniSlideLanding
+        duration: 4s
+        timing-function: ease-in-out
+        iteration-count: infinite
+        direction: alternate-reverse
+    &::after
+      z-index: -2
+      animation:
+        duration: 5s
+        direction: alternate
