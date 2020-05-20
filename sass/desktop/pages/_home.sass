@@ -1,8 +1,18 @@
 @keyframes aniSlideLanding
-    from
-      background-position-x: -100vw
-    to
-      background-position-x: 0
+  from
+    background-position-x: -100vw
+  to
+    background-position-x: 0
+
+@keyframes aniHat
+  from
+    transform: rotate(0)
+  5%
+    transform: rotate(10deg)
+  7%
+    transform: rotate(0)
+  to
+    transform: rotate(0)
 
 .landing
   min-height: 100vh
@@ -21,6 +31,13 @@
     align-items: center
     &-img
       max-width: 15rem
+      transform-origin: right bottom
+      animation:
+        name: aniHat
+        delay: 5s
+        timing-function: ease-in-out
+        iteration-count: infinite
+        duration: 10s
   &__titles
     grid-column: 2 / 3
     grid-row: 1 / 2

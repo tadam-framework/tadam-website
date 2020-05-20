@@ -367,6 +367,20 @@ h1, h2, h3, h4, h5, h6 {
     background-position-x: 0;
   }
 }
+@keyframes aniHat {
+  from {
+    transform: rotate(0);
+  }
+  5% {
+    transform: rotate(10deg);
+  }
+  7% {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
 .landing {
   min-height: 100vh;
   background: #6c3;
@@ -387,6 +401,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 .landing__logo-img {
   max-width: 15rem;
+  transform-origin: right bottom;
+  animation-name: aniHat;
+  animation-delay: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 10s;
 }
 .landing__titles {
   grid-column: 2/3;
