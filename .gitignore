@@ -1,4 +1,5 @@
 .cache/
 docs/
+dist/
 node_modules/
 !docs/CNAME

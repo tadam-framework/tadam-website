@@ -6,13 +6,11 @@
 
 @keyframes aniHat
   from
-    transform: rotate(0)
-  5%
-    transform: rotate(10deg)
-  7%
-    transform: rotate(0)
+    transform: scale(1.2, .8)
+  8%
+    transform: scale(1)
   to
-    transform: rotate(0)
+    transform: scale(1)
 
 .landing
   min-height: 100vh
@@ -29,15 +27,15 @@
     display: flex
     justify-content: center
     align-items: center
+    transform: rotate(-10deg)
     &-img
       max-width: 15rem
-      transform-origin: right bottom
+      transform-origin: center bottom
       animation:
         name: aniHat
-        delay: 5s
-        timing-function: ease-in-out
+        timing-function: cubic-bezier(1,.01,0,1.43)
         iteration-count: infinite
-        duration: 10s
+        duration: 5s
   &__titles
     grid-column: 2 / 3
     grid-row: 1 / 2
