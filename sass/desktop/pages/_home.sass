@@ -46,7 +46,25 @@
     font-size: 3rem
     margin: 0
   &__subtitle
+    font-size: 1.2rem
+    margin-bottom: 2rem
+  &__start
+    display: block
+    border: 1px solid $color-white
+    width: 10rem
     font-size: 1.3rem
+    text-transform: uppercase
+    padding: 1rem
+    border-radius: .4rem
+    margin: 0 auto
+    margin-top: 3rem
+    transition: .3s
+    text-decoration: initial
+    color: $color-white
+    &:hover
+      color: $color-green
+      background-color: $color-white
+      box-shadow: 0px 0px 0px .5rem transparentize($color-darkgreen, .5)
   &__background
     position: relative
     z-index: 100
@@ -87,7 +105,7 @@
 .aside
   grid-column: 1 / 2
   grid-row: 1 / 2
-  background-color: $color-green
+  background-color: $color-darkgreen
   &__logo
     position: sticky
     top: 2rem
