@@ -79,3 +79,17 @@
       animation:
         duration: 5s
         direction: alternate
+
+.main__grid
+  display: grid
+  grid-template-columns: 15rem auto
+
+.aside
+  grid-column: 1 / 2
+  grid-row: 1 / 2
+  background-color: $color-green
+  &__logo
+    position: sticky
+    top: 2rem
+    margin: 2rem
+    width: 4rem
