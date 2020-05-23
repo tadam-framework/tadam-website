@@ -4,3 +4,114 @@
       image: linear-gradient(-60deg, transparentize($color-green, .3) 50%, transparent 50%)
       repeat: no-repeat
       size: 200vw auto
+
+// MIXINS BASE
+/*
+ * Fixes an element on the page to take up all the space or only part of it.
+ * $side: all (default), top, bottom
+ *
+ * Examples: @include pin() , @include pin('top'), @include pin('bottom', 2500)
+ */
+@mixin pin($side: all, $z-index: 1000)
+  position: fixed
+  left: 0
+  right: 0
+  z-index: $z-index
+  @if $side == 'all'
+    top: 0
+    bottom: 0
+  @else if $side == 'top'
+    top: 0
+  @else if $side == 'bottom'
+    bottom: 0
+
+/*
+ * Add a border through the shadows avoiding extra space.
+ * $size: unit
+ *
+ * Examples: @include sizeSquare(4rem) , @include sizeSquare(10px)
+ */
+@mixin sizeSquare($size)
+  width: $size
+  height: $size
+
+/*
+ * Remove initial styles <ul>
+ *
+ * Examples: @include ulReset()
+ */
+@mixin ulReset()
+  list-style: none
+  padding: initial
+  margin: initial
+
+/*
+ * Add a border through the shadows avoiding extra space.
+ * $size: 1px (default), unit
+ * $color: black (default), color
+ * $side: all (default), top, right, bottom, left
+ *
+ * Examples: @include border(), @include border(2px, dashed), @include border(2px, solid, red)
+ */
+@mixin border($size: 1px, $color: black, $side: all)
+  border: 0
+  -webkit-appearance: none
+  @if $side == 'all'
+    box-shadow: inset 0 0 0 $size $color
+  @else if $side == 'top'
+    box-shadow: inset 0 $size 0 0 $color
+  @else if $side == 'right'
+    box-shadow: inset -#{$size} 0 0 0 $color
+  @else if $side == 'left'
+    box-shadow: inset $size 0 0 0 $color
+  @else if $side == 'bottom'
+    box-shadow: inset 0 -#{$size} 0 0 $color
+
+/*
+ * Add a rotation animation.
+ * $speed: 1s (default), seconds
+ *
+ * Examples: @include animationRotate(2s), @include animationRotate(0.5s)
+ */
+@mixin animationRotate($speed: 1s)
+  $id: unique-id()
+  @keyframes#{$id}
+      from
+        transform: rotate(0)
+      to
+        transform: rotate(360deg)
+  animation:
+    name: $id
+    duration: $speed
+    iteration-count: infinite
+    timing-function: linear
+
+@mixin animationPulse($speed: 1s, $size: 1rem, $color: black, $iteration: infinite)
+  $id: unique-id()
+  @keyframes #{$id}
+      from
+        box-shadow: 0 0 0 0 $color
+      to
+        box-shadow: 0 0 0 $size transparentize($color, 1)
+  animation:
+    name: $id
+    duration: $speed
+    iteration-count: $iteration
+    timing-function: linear
+
+@mixin animationOpacity($speed: 1s, $iteration: infinite)
+  $id: unique-id()
+  @keyframes #{$id}
+      from
+        opacity: 0
+      to
+        opacity: 1
+  animation:
+    name: $id
+    duration: $speed
+    iteration-count: $iteration
+    timing-function: linear
+    direction: alternate
+
+
+// END MIXINS BASE
