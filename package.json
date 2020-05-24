@@ -4,5 +4,8 @@
     "jstransformer-markdown-it": "^2.1.0",
     "pug": "^2.0.4",
     "sass": "^1.26.5"
+  },
+  "dependencies": {
+    "highlight.js": "^10.0.3"
   }
 }

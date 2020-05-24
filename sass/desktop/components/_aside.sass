@@ -29,8 +29,17 @@
       border-radius: 50%
   &__link
     display: block
+    position: relative
     color: transparentize($color-white, .5)
     margin-bottom: .8rem
     &:hover
       color: $color-white
+    &--soon
+      &::after
+        position: absolute
+        top: -.5rem
+        margin-left: .5rem
+        content: 'soon'
+        color: transparentize($color-white, .6)
+        font-size: .8rem
 

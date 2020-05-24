@@ -41,33 +41,33 @@ html(lang='en')
               li
                 a.aside__link(href="#installation") Installation
               li
-                a.aside__link Configuration
+                a.aside__link.aside__link--soon Configuration
               li
-                a.aside__link Directory Structure
+                a.aside__link.aside__link--soon Directory Structure
               li
-                a.aside__link Routing
+                a.aside__link.aside__link--soon Routing
               li
-                a.aside__link Views
+                a.aside__link.aside__link--soon Views
               li
-                a.aside__link Requests
+                a.aside__link.aside__link--soon Requests
               li
-                a.aside__link Responses
+                a.aside__link.aside__link--soon Responses
             h2.aside__title Deployment
             ul.aside__ul
               li
-                a.aside__link Compile
+                a.aside__link.aside__link--soon Compile
               li
-                a.aside__link Reverse proxy
+                a.aside__link.aside__link--soon Reverse proxy
 
 
             h2.aside__title Tutorials
             ul.aside__ul
               li
-                a.aside__link Simple Web
+                a.aside__link.aside__link--soon Simple Web
               li
-                a.aside__link Page with Markdown
+                a.aside__link.aside__link--soon Page with Markdown
               li
-                a.aside__link Simple API
+                a.aside__link.aside__link--soon Simple API
             ul.aside__ul.aside__ul-footer
               li
                 a.aside__link(href="https://github.com/tadam-framework" target="_blank")
@@ -78,6 +78,8 @@ html(lang='en')
           h1.main__title Installation
           include:markdown-it(html) markdown/basics/installation.md
     footer
+    // Highlight.js
+    script(defer, src='js/main.js')
     // Global site tag (gtag.js) - Google Analytics
     script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-46470654-7')
     script.
