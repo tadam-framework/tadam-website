@@ -18,7 +18,9 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Install
-      run: sudo npm install -g parcel-bundler
+      run: |
+          sudo npm install -g parcel-bundler
+          npm i
       
     - name: Build
       run: parcel build index.pug --out-dir docs
