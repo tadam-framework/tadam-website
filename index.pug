@@ -41,42 +41,47 @@ html(lang='en')
               li
                 a.aside__link(href="#installation") Installation
               li
-                a.aside__link.aside__link--soon Configuration
+                a.aside__link(href="#directory") Directory Structure
               li
-                a.aside__link.aside__link--soon Directory Structure
+                a.aside__link.aside__link--soon(href="#configuration") Configuration
               li
-                a.aside__link.aside__link--soon Routing
+                a.aside__link.aside__link--soon(href="#routing") Routing
               li
-                a.aside__link.aside__link--soon Views
+                a.aside__link.aside__link--soon(href="#views") Views
               li
-                a.aside__link.aside__link--soon Requests
+                a.aside__link.aside__link--soon(href="#requests") Requests
               li
-                a.aside__link.aside__link--soon Responses
+                a.aside__link.aside__link--soon(href="#responses") Responses
             h2.aside__title Deployment
             ul.aside__ul
               li
-                a.aside__link.aside__link--soon Compile
+                a.aside__link.aside__link--soon(href="#compile") Compile
               li
-                a.aside__link.aside__link--soon Reverse proxy
+                a.aside__link.aside__link--soon(href="#reverse") Reverse proxy
 
 
             h2.aside__title Tutorials
             ul.aside__ul
               li
-                a.aside__link.aside__link--soon Simple Web
+                a.aside__link.aside__link--soon(href="#simple") Simple Web
               li
-                a.aside__link.aside__link--soon Page with Markdown
+                a.aside__link.aside__link--soon(href="#markdown") Markdown Page
               li
-                a.aside__link.aside__link--soon Simple API
+                a.aside__link.aside__link--soon(href="#api") Simple API
             ul.aside__ul.aside__ul-footer
               li
                 a.aside__link(href="https://github.com/tadam-framework" target="_blank")
                   img.aside__icon(src="img/github.svg")
       main.main#main
         .container.container--full
+          p Tadam is the minimum essence to create a #[strong web application with Clojure], simple in its use and professional in results. A Python #[strong Flask equivalent].
+          p The rest of the magic will come from you.
           .mark#installation
           h1.main__title Installation
           include:markdown-it(html) markdown/basics/installation.md
+          .mark#directory
+          h1.main__title Directory Structure
+          include:markdown-it(html) markdown/basics/directory.md
     footer
     // Highlight.js
     script(defer, src='js/main.js')

@@ -38,7 +38,7 @@ lein new tadam-lite myproject
 lein run
 ```
 
-Great 🎉. You already have your 🔥 own comment server 🔥.
+Great 🎉. You already have your 🔥 own web server 🔥.
 
 Now open in you browser.
 
