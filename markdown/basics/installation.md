@@ -43,5 +43,5 @@ Great 🎉. You already have your 🔥 own web server 🔥.
 Now open in you browser.
 
 ``` shell
-localhost:4000
+localhost:7404
 ```
