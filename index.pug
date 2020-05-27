@@ -43,7 +43,7 @@ html(lang='en')
               li
                 a.aside__link(href="#directory") Directory Structure
               li
-                a.aside__link.aside__link--soon(href="#configuration") Configuration
+                a.aside__link(href="#configuration") Configuration
               li
                 a.aside__link.aside__link--soon(href="#routing") Routing
               li
@@ -82,7 +82,11 @@ html(lang='en')
           .mark#directory
           h1.main__title Directory Structure
           include:markdown-it(html) markdown/basics/directory.md
-    footer
+          .mark#configuration
+          h1.main__title Configuration
+          include:markdown-it(html) markdown/basics/configuration.md
+          footer.footer
+            p 2020 Tadam Framework
     // Highlight.js
     script(defer, src='js/main.js')
     // Global site tag (gtag.js) - Google Analytics

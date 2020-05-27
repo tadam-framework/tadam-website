@@ -7,3 +7,4 @@ import clojure from 'highlight.js/lib/languages/clojure';
 hljs.initHighlightingOnLoad();
 hljs.registerLanguage('shell', shell);
 hljs.registerLanguage('clojure', clojure);
+hljs.registerLanguage('yaml', clojure);
