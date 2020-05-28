@@ -45,13 +45,23 @@ html(lang='en')
               li
                 a.aside__link(href="#configuration") Configuration
               li
-                a.aside__link.aside__link--soon(href="#routing") Routing
+                a.aside__link(href="#routing") Routing
               li
                 a.aside__link.aside__link--soon(href="#views") Views
               li
                 a.aside__link.aside__link--soon(href="#requests") Requests
               li
                 a.aside__link.aside__link--soon(href="#responses") Responses
+            h2.aside__title Advances
+            ul.aside__ul
+              li
+                a.aside__link.aside__link--soon(href="#markdown") Email
+              li
+                a.aside__link.aside__link--soon(href="#forms") Forms
+              li
+                a.aside__link.aside__link--soon(href="#sessions") Sessions
+              li
+                a.aside__link.aside__link--soon(href="#database") Database
             h2.aside__title Deployment
             ul.aside__ul
               li
@@ -59,34 +69,38 @@ html(lang='en')
               li
                 a.aside__link.aside__link--soon(href="#reverse") Reverse proxy
 
-
-            h2.aside__title Tutorials
-            ul.aside__ul
-              li
-                a.aside__link.aside__link--soon(href="#simple") Simple Web
-              li
-                a.aside__link.aside__link--soon(href="#markdown") Markdown Page
-              li
-                a.aside__link.aside__link--soon(href="#api") Simple API
             ul.aside__ul.aside__ul-footer
               li
                 a.aside__link(href="https://github.com/tadam-framework" target="_blank")
                   img.aside__icon(src="img/github.svg")
       main.main#main
         .container.container--full
-          p Tadam is the minimum essence to create a #[strong web application with Clojure], simple in its use and professional in results. A Python #[strong Flask equivalent].
+          // Description
+          p Tadam is a minimalist framework for creating dynamic #[strong function-oriented websites]. All the #[strong potential of  Clojure simplified] for fast development. Could be #[strong equivalent to Flask], but a little more modern.
           p The rest of the magic will come from you.
+
+          // Pages
+          //// Installation
           .mark#installation
           h1.main__title Installation
           include:markdown-it(html) markdown/basics/installation.md
+          //// Directory
           .mark#directory
           h1.main__title Directory Structure
           include:markdown-it(html) markdown/basics/directory.md
+          //// Configuration
           .mark#configuration
           h1.main__title Configuration
           include:markdown-it(html) markdown/basics/configuration.md
+          //// Routing
+          .mark#routing
+          h1.main__title Routing
+          include:markdown-it(html) markdown/basics/routing.md
+          // End pages
+
           footer.footer
             p 2020 Tadam Framework
+
     // Highlight.js
     script(defer, src='js/main.js')
     // Global site tag (gtag.js) - Google Analytics
