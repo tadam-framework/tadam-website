@@ -65,9 +65,11 @@ html(lang='en')
             h2.aside__title Deployment
             ul.aside__ul
               li
-                a.aside__link.aside__link--soon(href="#compile") Compile
+                a.aside__link(href="#compile") Compile
               li
-                a.aside__link.aside__link--soon(href="#reverse") Reverse proxy
+                a.aside__link(href="#service") Service
+              li
+                a.aside__link(href="#reverse") Reverse proxy
 
             ul.aside__ul.aside__ul-footer
               li
@@ -130,6 +132,18 @@ html(lang='en')
             .mark#routing
             h1.main__title Routing
             include:markdown-it(html) markdown/basics/routing.md
+          section
+            .mark#compile
+            h1.main__title Compile
+            include:markdown-it(html) markdown/deployment/compile.md
+          section
+            .mark#service
+            h1.main__title Service
+            include:markdown-it(html) markdown/deployment/service.md
+          section
+            .mark#reverse
+            h1.main__title Reverse Proxy
+            include:markdown-it(html) markdown/deployment/reverse.md
           // End pages
 
           footer.footer
