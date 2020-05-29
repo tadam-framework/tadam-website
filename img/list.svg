@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 309 1314" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:2;">
+<svg width="100%" height="100%" viewBox="0 0 307 1312" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-miterlimit:2;">
     <g transform="matrix(1,0,0,1,-249.759,-249.982)">
         <g id="List">
-            <path id="Curva" d="M303.758,300.305C301.829,367.929 332.8,434.281 399.548,499.32C531.009,641.965 538.439,775.09 401.876,898.922C266.535,1030.94 265.798,1165.06 402.07,1301.37C464.925,1370.79 498.394,1438.33 499.788,1504" style="fill:none;stroke:black;stroke-width:12px;stroke-dasharray:36,36,0,0;"/>
+            <path id="Curva" d="M303.758,300.305C301.829,367.929 332.8,434.281 399.548,499.32C531.009,641.965 538.439,775.09 401.876,898.922C266.535,1030.94 265.798,1165.06 402.07,1301.37C464.925,1370.79 498.394,1438.33 499.788,1504" style="fill:none;stroke:black;stroke-width:5px;stroke-dasharray:15,15,0,0;"/>
             <g id="_1" serif:id="1" transform="matrix(0.480418,0,0,0.480418,151.615,152.131)">
                 <g transform="matrix(1,0,0,1,-94.7544,153.559)">
                     <circle cx="401.587" cy="148.213" r="98.093" style="fill:rgb(102,204,51);"/>
                 </g>
-                <g transform="matrix(1,0,0,1,-46.0529,235.805)">
-                    <text x="307.669px" y="127.318px" style="font-family:'Helvetica';font-size:172.414px;fill:white;">1</text>
+                <g transform="matrix(1,0,0,1,-33.2236,227.563)">
+                    <text x="307.669px" y="127.318px" style="font-family:'Helvetica';font-size:133.217px;fill:white;">1</text>
                 </g>
             </g>
             <g id="_2" serif:id="2" transform="matrix(0.487879,0,0,0.487879,302.121,652.62)">
                 <g transform="matrix(1,0,0,1,0.276694,-47.5633)">
-                    <circle cx="401.587" cy="148.213" r="98.093" style="fill:white;stroke:rgb(102,204,51);stroke-width:20.5px;stroke-linejoin:round;stroke-miterlimit:1.5;"/>
+                    <circle cx="401.587" cy="148.213" r="98.093" style="fill:white;stroke:rgb(102,204,51);stroke-width:10.25px;stroke-linejoin:round;stroke-miterlimit:1.5;"/>
                 </g>
-                <g transform="matrix(1,0,0,1,47.7638,34.7552)">
-                    <text x="307.669px" y="127.318px" style="font-family:'Helvetica';font-size:172.414px;">2</text>
+                <g transform="matrix(1,0,0,1,56.482,19.6576)">
+                    <text x="307.669px" y="127.318px" style="font-family:'Helvetica';font-size:131.18px;">2</text>
                 </g>
             </g>
             <g id="_3" serif:id="3" transform="matrix(0.515401,0,0,0.515401,93.1949,1057.09)">
                 <g transform="matrix(1,0,0,1,0.276694,-47.5633)">
                     <circle cx="401.587" cy="148.213" r="98.093" style="fill:rgb(102,204,51);"/>
                 </g>
-                <g transform="matrix(1,0,0,1,47.7638,34.7552)">
-                    <text x="307.669px" y="127.318px" style="font-family:'Helvetica';font-size:172.414px;fill:white;">3</text>
+                <g transform="matrix(1,0,0,1,61.3848,17.0124)">
+                    <text x="307.669px" y="127.318px" style="font-family:'Helvetica';font-size:124.175px;fill:white;">3</text>
                 </g>
             </g>
             <g id="_31" serif:id="3" transform="matrix(0.540327,0,0,0.540327,283.408,1451.49)">
                 <g transform="matrix(1,0,0,1,0.276694,-47.5633)">
-                    <circle cx="401.587" cy="148.213" r="98.093" style="fill:white;stroke:rgb(102,204,51);stroke-width:18.51px;stroke-linejoin:round;stroke-miterlimit:1.5;"/>
+                    <circle cx="401.587" cy="148.213" r="98.093" style="fill:white;stroke:rgb(102,204,51);stroke-width:9.25px;stroke-linejoin:round;stroke-miterlimit:1.5;"/>
                 </g>
-                <g transform="matrix(1,0,0,1,43.7638,29.7552)">
-                    <text x="307.669px" y="127.318px" style="font-family:'Helvetica';font-size:172.414px;">4</text>
+                <g transform="matrix(1,0,0,1,59.2717,12.5905)">
+                    <text x="307.669px" y="127.318px" style="font-family:'Helvetica';font-size:118.447px;">4</text>
                 </g>
             </g>
         </g>

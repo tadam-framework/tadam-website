@@ -3,14 +3,17 @@
     &__grid
       display: grid
       grid-gap: 3rem
-      grid-template: repeat(4, auto) / 1fr 1fr 5fr
+      grid-template: repeat(4, auto) / 1fr 1fr 10fr
       margin: 3rem 0
-    &__image
+    &__title
+      margin: 0
+    &__content-image
       grid-row: 1 / 5
       grid-column: 1 / 3
       display: flex
-      flex-direction: column
-      justify-content: center
+      justify-content: flex-end
+    &__image
+      max-width: 10rem
     &__text-1
       grid-row: 1 / 2
       grid-column: 3 / 4
@@ -32,6 +35,8 @@
       display: flex
       flex-direction: column
       justify-content: flex-end
+    &__text--tab
+      margin-left: 3rem
   &__grid
     display: grid
     grid-template-columns: 15rem auto

@@ -80,16 +80,16 @@ html(lang='en')
             p Tadam is a minimalist framework for creating dynamic #[strong function-oriented websites]. All the #[strong potential of  Clojure simplified] for fast development. Could be #[strong equivalent to Flask], but a little more modern.
             p The rest of the magic will come from you.
             .introduction__grid
-              .introduction__image
-                img(src="img/list.svg" alt="Order list")
+              .introduction__content-image
+                img.introduction__image(src="img/list.svg" alt="Order list")
               .introduction__text-1
-                h2 urls.clj
+                h2.introduction__title urls.clj
                 pre
                   code.clojure.
                     (defroutes public
                       (GET "/" [] view-public/index))
-              .introduction__text-2
-                h2 views.clj
+              .introduction__text-2.introduction__text--tab
+                h2.introduction__title views.clj
                 pre
                   code.clojure.
                     (defn index
@@ -98,13 +98,13 @@ html(lang='en')
                         { name: "Tadam",
                           time: (System/currentTimeMillis) }))
               .introduction__text-3
-                h2 welcome.html
+                h2.introduction__title welcome.html
                 pre
                   code.django.
                     #{'<h1>Welcome to {{ name }} Framework</h1>'}
                     #{'<p>No bugs since: {{ time }}</p>'}
-              .introduction__text-4
-                h2 🎉 TADAM!!! 🎉
+              .introduction__text-4.introduction__text--tab
+                h2.introduction__title 🎉 TADAM!!! 🎉
                 pre
                   code.django.
                     #{'<h1>Welcome to Tadam Framework</h1>'}
