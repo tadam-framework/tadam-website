@@ -72,34 +72,68 @@ html(lang='en')
             ul.aside__ul.aside__ul-footer
               li
                 a.aside__link(href="https://github.com/tadam-framework" target="_blank")
-                  img.aside__icon(src="img/github.svg")
+                  img.aside__icon(src="img/github.svg" alt="Github")
       main.main#main
         .container.container--full
-          // Description
-          p Tadam is a minimalist framework for creating dynamic #[strong function-oriented websites]. All the #[strong potential of  Clojure simplified] for fast development. Could be #[strong equivalent to Flask], but a little more modern.
-          p The rest of the magic will come from you.
-
+          // Introduction
+          section.introduction
+            p Tadam is a minimalist framework for creating dynamic #[strong function-oriented websites]. All the #[strong potential of  Clojure simplified] for fast development. Could be #[strong equivalent to Flask], but a little more modern.
+            p The rest of the magic will come from you.
+            .introduction__grid
+              .introduction__image
+                img(src="img/list.svg" alt="Order list")
+              .introduction__text-1
+                h2 urls.clj
+                pre
+                  code.clojure.
+                    (defroutes public
+                      (GET "/" [] view-public/index))
+              .introduction__text-2
+                h2 views.clj
+                pre
+                  code.clojure.
+                    (defn index
+                      [req]
+                      (render-HTML req "welcome.html"
+                        { name: "Tadam",
+                          time: (System/currentTimeMillis) }))
+              .introduction__text-3
+                h2 welcome.html
+                pre
+                  code.django.
+                    #{'<h1>Welcome to {{ name }} Framework</h1>'}
+                    #{'<p>No bugs since: {{ time }}</p>'}
+              .introduction__text-4
+                h2 🎉 TADAM!!! 🎉
+                pre
+                  code.django.
+                    #{'<h1>Welcome to Tadam Framework</h1>'}
+                    #{'<p>No bugs since: 1590773922089</p>'}
           // Pages
           //// Installation
-          .mark#installation
-          h1.main__title Installation
-          include:markdown-it(html) markdown/basics/installation.md
+          section
+            .mark#installation
+            h1.main__title Installation
+            include:markdown-it(html) markdown/basics/installation.md
           //// Directory
-          .mark#directory
-          h1.main__title Directory Structure
-          include:markdown-it(html) markdown/basics/directory.md
+          section
+            .mark#directory
+            h1.main__title Directory Structure
+            include:markdown-it(html) markdown/basics/directory.md
           //// Configuration
-          .mark#configuration
-          h1.main__title Configuration
-          include:markdown-it(html) markdown/basics/configuration.md
+          section
+            .mark#configuration
+            h1.main__title Configuration
+            include:markdown-it(html) markdown/basics/configuration.md
           //// Routing
-          .mark#routing
-          h1.main__title Routing
-          include:markdown-it(html) markdown/basics/routing.md
+          section
+            .mark#routing
+            h1.main__title Routing
+            include:markdown-it(html) markdown/basics/routing.md
           // End pages
 
           footer.footer
-            p 2020 Tadam Framework
+            p 2020 Tadam Framework | Author: #[a(href="https://programadorwebvalencia.com/" target="_blank") Andros Fenollosa]
 
     // Highlight.js
     script(defer, src='js/main.js')
