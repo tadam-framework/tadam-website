@@ -72,13 +72,14 @@ html(lang='en')
                 a.aside__link(href="#service") Service
               li
                 a.aside__link(href="#reverse") Reverse proxy
-
-            ul.aside__ul.aside__ul-footer
-              li
-                a.aside__link(href="https://github.com/tadam-framework" target="_blank")
-                  img.aside__icon(src="img/github.svg" alt="Github")
       main.main#main
-        .container.container--full
+        .container
+          .github
+            a(href='https://github.com/tadam-framework/tadam-core')
+              img.github__icon(src="img/github.svg" alt="Github")
+            // Place this tag where you want the button to render.
+            span.github__button
+              a.github-button(href='https://github.com/tadam-framework/tadam-core' data-icon='octicon-star' data-size='large' data-show-count='true' aria-label='Star tadam Framework on GitHub') Star
           // Introduction
           section.introduction
             p Tadam is a minimalist framework for creating dynamic #[strong function-oriented websites]. All the #[strong potential of  Clojure simplified] for fast development. Could be #[strong equivalent to Flask], but a little more modern.
@@ -151,8 +152,8 @@ html(lang='en')
           footer.footer
             p 2020 Tadam Framework | Author: #[a(href="https://programadorwebvalencia.com/" target="_blank") Andros Fenollosa]
 
-    // Highlight.js
-    script(defer, src='js/main.js')
+    // Place this tag in your head or just before your close body tag.
+    script(async='' defer='' src='https://buttons.github.io/buttons.js')
     // Global site tag (gtag.js) - Google Analytics
     script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-46470654-7')
     script.
@@ -160,4 +161,6 @@ html(lang='en')
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'UA-46470654-7');
+    // My javascript
+    script(defer, src='js/main.js')
 
