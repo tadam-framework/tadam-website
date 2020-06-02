@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Tadam Web Framework</title><link rel="icon" type="image/png" href="/favicon.60e2b505.png"><meta name="theme-color" content="#838383"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no"><meta name="author" content="Andros Fenollosa"><meta name="generator" content="Tadam"><meta name="keywords" content="Clojure, Web, Framework, template"><meta name="description" content="Magic Web development with Clojure, simple by default."><meta property="og:image" content="/tadam-opengraph.e4e3bc76.png"><meta property="og:title" content="Tadam Web Framework"><meta property="og:type" content="website"><meta property="og:url" content="img/tadam-opengraph.png"><meta name="twitter:card" content="summary"><meta name="twitter:creator" content="@androsfenollosa"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="400"><meta property="og:image:height" content="300"><meta property="og:image:alt" content="Logo Tadam"><link href="/mobile.ffb54659.css" rel="stylesheet" media="all and (max-width: 600px)"><link href="/desktop.bacf7e9d.css" rel="stylesheet" media="all and (min-width: 600px)"></head><body><div class="landing landing__background"><div class="container landing__grid"><div class="landing__logo"><img class="landing__logo-img" src="/tadam-logo.de273db4.svg"></div><div class="landing__titles"><h2 class="landing__subtitle">No rabbits, just Clojure</h2><h1 class="landing__title">Tadam Web Framework</h1><a class="landing__start" href="#main">Start</a></div></div></div><div class="main__grid"><aside class="aside"><div class="aside__content"><img class="aside__logo" src="/tadam-logo.de273db4.svg"><nav class="aside__nav"><h2 class="aside__title aside__title--first">Basics</h2><ul class="aside__ul"><li><a class="aside__link" href="#installation">Installation</a></li><li><a class="aside__link" href="#directory">Directory Structure</a></li><li><a class="aside__link" href="#configuration">Configuration</a></li><li><a class="aside__link" href="#routing">Routing</a></li><li><a class="aside__link aside__link--soon" href="#views">Views</a></li><li><a class="aside__link aside__link--soon" href="#templates">Templates</a></li><li><a class="aside__link aside__link--soon" href="#requests">Requests</a></li><li><a class="aside__link aside__link--soon" href="#responses">Responses</a></li></ul><h2 class="aside__title">Advances</h2><ul class="aside__ul"><li><a class="aside__link aside__link--soon" href="#markdown">Email</a></li><li><a class="aside__link aside__link--soon" href="#forms">Forms</a></li><li><a class="aside__link aside__link--soon" href="#sessions">Sessions</a></li><li><a class="aside__link aside__link--soon" href="#database">Database</a></li></ul><h2 class="aside__title">Deployment</h2><ul class="aside__ul"><li><a class="aside__link" href="#compile">Compile</a></li><li><a class="aside__link" href="#service">Service</a></li><li><a class="aside__link" href="#reverse">Reverse proxy</a></li></ul></nav></div></aside><main class="main" id="main"><div class="container"><div class="github"><a href="https://github.com/tadam-framework/tadam-core"><img class="github__icon" src="/github.e03f6e2d.svg" alt="Github"></a><span class="github__button"><a class="github-button" href="https://github.com/tadam-framework/tadam-core" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star tadam Framework on GitHub">Star</a></span></div><section class="introduction"><p>Tadam is a minimalist framework for creating dynamic <strong>function-oriented websites</strong>. All the <strong>potential of Clojure simplified</strong> for fast development. Could be <strong>equivalent to Flask</strong>, but a little more modern.</p><p>The rest of the magic will come from you.</p><div class="introduction__grid"><div class="introduction__content-image"><img class="introduction__image" src="/list.501e3bf5.svg" alt="Order list"></div><div class="introduction__text-1"><h2 class="introduction__title">urls.clj</h2><pre><code class="clojure">(defroutes public
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Tadam Web Framework</title><link rel="icon" type="image/png" href="/favicon.60e2b505.png"><meta name="theme-color" content="#838383"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no"><meta name="author" content="Andros Fenollosa"><meta name="generator" content="Tadam"><meta name="keywords" content="Clojure, Web, Framework, template"><meta name="description" content="Magic Web development with Clojure, simple by default."><meta property="og:image" content="/tadam-opengraph.e4e3bc76.png"><meta property="og:title" content="Tadam Web Framework"><meta property="og:type" content="website"><meta property="og:url" content="img/tadam-opengraph.png"><meta name="twitter:card" content="summary"><meta name="twitter:creator" content="@androsfenollosa"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="400"><meta property="og:image:height" content="300"><meta property="og:image:alt" content="Logo Tadam"><link href="/mobile.ffb54659.css" rel="stylesheet" media="all and (max-width: 600px)"><link href="/desktop.4e5b2302.css" rel="stylesheet" media="all and (min-width: 600px)"></head><body><div class="landing landing__background"><div class="container landing__grid"><div class="landing__logo"><img class="landing__logo-img" src="/tadam-logo.de273db4.svg"></div><div class="landing__titles"><h2 class="landing__subtitle">No rabbits, just Clojure</h2><h1 class="landing__title">Tadam Web Framework</h1><a class="landing__start" href="#main">Start</a></div></div></div><div class="main__grid"><aside class="aside"><div class="aside__content"><img class="aside__logo" src="/tadam-logo.de273db4.svg"><nav class="aside__nav"><h2 class="aside__title aside__title--first">Basics</h2><ul class="aside__ul"><li><a class="aside__link" href="#installation">Installation</a></li><li><a class="aside__link" href="#directory">Directory Structure</a></li><li><a class="aside__link" href="#configuration">Configuration</a></li><li><a class="aside__link" href="#routing">Routing</a></li><li><a class="aside__link aside__link--soon" href="#views">Views</a></li><li><a class="aside__link aside__link--soon" href="#templates">Templates</a></li><li><a class="aside__link aside__link--soon" href="#requests">Requests</a></li><li><a class="aside__link aside__link--soon" href="#responses">Responses</a></li></ul><h2 class="aside__title">Advances</h2><ul class="aside__ul"><li><a class="aside__link aside__link--soon" href="#markdown">Email</a></li><li><a class="aside__link aside__link--soon" href="#forms">Forms</a></li><li><a class="aside__link aside__link--soon" href="#sessions">Sessions</a></li><li><a class="aside__link aside__link--soon" href="#database">Database</a></li></ul><h2 class="aside__title">Deployment</h2><ul class="aside__ul"><li><a class="aside__link" href="#compile">Compile</a></li><li><a class="aside__link" href="#service">Service</a></li><li><a class="aside__link" href="#reverse">Reverse proxy</a></li></ul><h2 class="aside__title">Community</h2><ul class="aside__ul"><li><a class="aside__link" href="#success">Success stories</a></li></ul></nav></div></aside><main class="main" id="main"><div class="container"><div class="github"><a href="https://github.com/tadam-framework/tadam-core"><img class="github__icon" src="/github.e03f6e2d.svg" alt="Github"></a><span class="github__button"><a class="github-button" href="https://github.com/tadam-framework/tadam-core" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star tadam Framework on GitHub">Star</a></span></div><section class="introduction"><p>Tadam is a minimalist framework for creating dynamic <strong>function-oriented websites</strong>. All the <strong>potential of Clojure simplified</strong> for fast development. Could be <strong>equivalent to Flask</strong>, but a little more modern.</p><p>The rest of the magic will come from you.</p><div class="introduction__grid"><div class="introduction__content-image"><img class="introduction__image" src="/list.501e3bf5.svg" alt="Order list"></div><div class="introduction__text-1"><h2 class="introduction__title">urls.clj</h2><pre><code class="clojure">(defroutes public
   (GET "/" [] view-public/index))</code></pre></div><div class="introduction__text-2 introduction__text--tab"><h2 class="introduction__title">views.clj</h2><pre><code class="clojure">(defn index
   [req]
   (render-HTML req "welcome.html"
@@ -185,18 +185,27 @@ wizard: Merlin
 &quot; Merlin
 </code></pre>
 </section><section><div class="mark" id="routing"></div><h1 class="main__title">Routing</h1><h2>Simple route</h2>
-<h2>Parameters</h2>
-<h2>Avoiding repetition</h2>
+<p>Inside <strong>urls.clj</strong> you can enter an example where 2 routes are declared linked to their respective views.</p>
+<p>If you want to <strong>add new routes</strong> you must <strong>follow 4 steps</strong>.</p>
+<ol>
+<li>Import the View.</li>
+<li>Use or create a group of Routes.</li>
+<li>Define the routes with View.</li>
+<li>Add your group to the set of all routes (Optional, only if it does not exist). You should always leave at the end of the resources-routes list, which are used for static content.</li>
+</ol>
 <pre><code class="language-clojure">(ns myproject.urls
   (:require
    [compojure.core :refer [defroutes GET]]
    [compojure.route :as route]
+   ;; 1) Import View
    [myproject.views.public :as view-public]))
 
+;; 2) Set group routes, in the example it is called &quot;public&quot;
 (defroutes public
-  ;; Urls public pages
+  ;; 3) Add routes
   (GET &quot;/&quot; [] view-public/index)
-  (GET &quot;/api&quot; [] view-public/api))
+  (GET &quot;/FAQ&quot; [] view-public/faq)
+  (GET &quot;/about&quot; [] view-public/about))
 
 
 (defroutes resources-routes
@@ -204,9 +213,40 @@ wizard: Merlin
   (route/resources &quot;/&quot;)
   (route/not-found view-public/page-404))
 
+;; 4) Add your group of routes to all of them.
 (def all-routes
   ;; Wrap routers. &quot;resources-routes&quot; should always be the last.
   (compojure.core/routes public resources-routes))
+</code></pre>
+<h2>Parameters</h2>
+<p>In the following example we have <strong>routes that require different parameters</strong>.</p>
+<pre><code class="language-clojure">(defroutes public
+  (GET &quot;/&quot; [] view-public/index)
+  (GET &quot;/blog/:id&quot; [id] view-public/blog)
+  (GET &quot;/auth/activate-account/:token/:email/&quot; [token email] view-auth/activate-account))
+</code></pre>
+<p>In the <strong>View</strong>, the variables would be collected as follows.</p>
+<pre><code class="language-clojure">(defn activate-account
+  &quot;Activate account&quot;
+  [req]
+    (def token (-&gt; req :params :token))
+    (def email (-&gt; req :params :email))
+    ;; Your magic code
+    (redirect req &quot;/auth/login/&quot;))
+</code></pre>
+<h2>Avoiding repetition</h2>
+<p>At certain times there comes a point where you need to have a prefix for the routes.</p>
+<pre><code class="language-clojure">(defroutes user-routes
+    (GET &quot;/user/auth/login&quot; [] ...)
+    (GET &quot;/user/auth/signup&quot; [] ...)
+    (GET &quot;/user/auth/recovery-password&quot; [] ...))
+</code></pre>
+<p>To avoid this you can use a context.</p>
+<pre><code class="language-clojure">(defroutes user-routes
+  (context &quot;/user/auth&quot; []
+    (GET &quot;/login&quot; [] ...)
+    (GET &quot;/signup&quot; [] ...)
+    (GET &quot;/recovery-password&quot; [] ...)))
 </code></pre>
 </section><section><div class="mark" id="compile"></div><h1 class="main__title">Compile</h1><p>Run the following command to build a <strong>jar</strong> file.</p>
 <pre><code class="language-shell">lein uberjar
@@ -250,5 +290,15 @@ sudo systemctl start tadam-project
             proxy_redirect  off;
         }
 }
+</code></pre>
+</section><section class="success__stories"><div class="mark" id="community"></div><h1 class="main__title">Success stories</h1><p><a href="https://github.com/glosa/glosa-server"><img src="https://cdn.jsdelivr.net/gh/glosa/glosa-server/media/logo.png" alt="Glosa"></a></p>
+<p>Comments for static sites. Clone of Disqus, but faster, Opensource and sexy.</p>
+<p><a href="https://is-wordpress.andros.dev/"><img src="https://is-wordpress.andros.dev/img/screenshot.png" alt="Is it wordpress"></a></p>
+<p>Free online service that tells you if a site is made with WordPress using proprietary techniques.</p>
+<h2>Do you want to know if a site is made with Tadam?</h2>
+<pre><code class="language-shell">curl -Is localhost:7404 | grep 'X-Powered-By:' 
+</code></pre>
+<p>👇</p>
+<pre><code class="language-shell">X-Powered-By: Clojure/Tadam
 </code></pre>
 </section><footer class="footer"><p>2020 Tadam Framework | Author: <a href="https://programadorwebvalencia.com/" target="_blank">Andros Fenollosa</a></p></footer></div></main></div><script async defer src="https://buttons.github.io/buttons.js"></script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-46470654-7"></script><script>function a(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],a("js",new Date),a("config","UA-46470654-7");</script><script defer src="/main.b084b96e.js"></script></body></html>
