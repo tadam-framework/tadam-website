@@ -47,7 +47,7 @@ html(lang='en')
               li
                 a.aside__link(href="#routing") Routing
               li
-                a.aside__link.aside__link--soon(href="#views") Views
+                a.aside__link(href="#views") Views
               li
                 a.aside__link.aside__link--soon(href="#templates") Templates
               li
@@ -139,6 +139,10 @@ html(lang='en')
             .mark#routing
             h1.main__title Routing
             include:markdown-it(html) markdown/basics/routing.md
+          section
+            .mark#views
+            h1.main__title Views
+            include:markdown-it(html) markdown/basics/views.md
           section
             .mark#compile
             h1.main__title Compile
