@@ -1,9 +1,13 @@
 ## Simple route
 
-## Parameters
+Inside **urls.clj** you can enter an example where 2 routes are declared linked to their respective views.
 
-## Avoiding repetition
+If you want to **add new routes** you must **follow 4 steps**.
 
+1. Import the View.
+2. Use or create a group of Routes.
+3. Define the routes with View.
+4. Add your group to the set of all routes (Optional, only if it does not exist). You should always leave at the end of the resources-routes list, which are used for static content.
 
 
 ``` clojure
@@ -11,12 +15,15 @@
   (:require
    [compojure.core :refer [defroutes GET]]
    [compojure.route :as route]
+   ;; 1) Import View
    [myproject.views.public :as view-public]))
 
+;; 2) Set group routes, in the example it is called "public"
 (defroutes public
-  ;; Urls public pages
+  ;; 3) Add routes
   (GET "/" [] view-public/index)
-  (GET "/api" [] view-public/api))
+  (GET "/FAQ" [] view-public/faq)
+  (GET "/about" [] view-public/about))
 
 
 (defroutes resources-routes
@@ -24,7 +31,52 @@
   (route/resources "/")
   (route/not-found view-public/page-404))
 
+;; 4) Add your group of routes to all of them.
 (def all-routes
   ;; Wrap routers. "resources-routes" should always be the last.
   (compojure.core/routes public resources-routes))
+```
+
+## Parameters
+
+In the following example we have **routes that require different parameters**.
+
+``` clojure
+(defroutes public
+  (GET "/" [] view-public/index)
+  (GET "/blog/:id" [id] view-public/blog)
+  (GET "/auth/activate-account/:token/:email/" [token email] view-auth/activate-account))
+```
+
+In the **View**, the variables would be collected as follows.
+
+``` clojure
+(defn activate-account
+  "Activate account"
+  [req]
+    (def token (-> req :params :token))
+    (def email (-> req :params :email))
+    ;; Your magic code
+    (redirect req "/auth/login/"))
+```
+
+## Avoiding repetition
+
+At certain times there comes a point where you need to have a prefix for the routes.
+
+``` clojure
+(defroutes user-routes
+    (GET "/user/auth/login" [] ...)
+    (GET "/user/auth/signup" [] ...)
+    (GET "/user/auth/recovery-password" [] ...))
+```
+
+To avoid this you can use a context.
+
+``` clojure
+(defroutes user-routes
+  (context "/user/auth" []
+    (GET "/login" [] ...)
+    (GET "/signup" [] ...)
+    (GET "/recovery-password" [] ...)))
 ```
