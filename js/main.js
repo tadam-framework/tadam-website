@@ -4,6 +4,7 @@ import shell from 'highlight.js/lib/languages/shell';
 import clojure from 'highlight.js/lib/languages/clojure';
 import yaml from 'highlight.js/lib/languages/yaml';
 import django from 'highlight.js/lib/languages/django';
+import json from 'highlight.js/lib/languages/json';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     hljs.registerLanguage('clojure', clojure);
     hljs.registerLanguage('yaml', yaml);
     hljs.registerLanguage('django', django);
+    hljs.registerLanguage('json', json);
 
     // Scroll aside
     //// Variables

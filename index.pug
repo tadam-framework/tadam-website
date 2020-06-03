@@ -49,7 +49,7 @@ html(lang='en')
               li
                 a.aside__link(href="#views") Views
               li
-                a.aside__link.aside__link--soon(href="#templates") Templates
+                a.aside__link(href="#templates") Templates
               li
                 a.aside__link.aside__link--soon(href="#requests") Requests
               li
@@ -143,6 +143,10 @@ html(lang='en')
             .mark#views
             h1.main__title Views
             include:markdown-it(html) markdown/basics/views.md
+          section
+            .mark#templates
+            h1.main__title Templates
+            include:markdown-it(html) markdown/basics/templates.md
           section
             .mark#compile
             h1.main__title Compile
