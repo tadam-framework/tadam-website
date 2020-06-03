@@ -86,6 +86,15 @@
     iteration-count: infinite
     timing-function: linear
 
+/*
+ * Add a pulse animation.
+ * $speed: 1s (default), seconds
+ * $size: 1rem (default), unit
+ * $color: black (default), color
+ * $iteration: infinite (default), number
+ *
+ * Examples: @include animationPulse(2s), @include animationPulse(0.5s, 2rem, yellow, 1)
+ */
 @mixin animationPulse($speed: 1s, $size: 1rem, $color: black, $iteration: infinite)
   $id: unique-id()
   @keyframes #{$id}
@@ -112,6 +121,16 @@
     iteration-count: $iteration
     timing-function: linear
     direction: alternate
+
+/*
+ * Center all child elements horizontally and vertically.
+ *
+ * Examples: @include centerChilds()
+ */
+@mixin centerChilds()
+  display: flex
+  justify-content: center
+  align-items: center
 
 
 // END MIXINS BASE

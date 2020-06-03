@@ -1,0 +1,43 @@
+.aside
+  @include pin()
+  grid-column: 1 / 2
+  grid-row: 1 / 2
+  background-color: $color-darkgreen
+  height: 100vh
+  overflow: auto
+  padding: 2rem 0
+  transform: translateX(-100vw)
+  &__content
+    text-align: center
+  &__logo
+    display: none
+    top: 2rem
+    margin: 2rem 0
+    margin-bottom: 0
+    width: 4rem
+  &__title
+    color: $color-white
+    text-transform: uppercase
+    font-size: 1rem
+    margin: 1rem 0
+    &--first
+      margin-top: 2rem
+  &__ul
+    @include ulReset()
+  &__link
+    display: block
+    position: relative
+    color: transparentize($color-white, .5)
+    margin-bottom: .8rem
+    font-size: 1.3rem
+    &:hover
+      color: $color-white
+    &--soon
+      &::after
+        position: absolute
+        top: -.5rem
+        margin-left: .5rem
+        content: 'soon'
+        color: transparentize($color-white, .6)
+        font-size: .8rem
+

@@ -1,1 +1,93 @@
-// Página de inicio...
+@keyframes aniSlideLanding
+  from
+    background-position-x: -100vw
+  to
+    background-position-x: 0
+
+@keyframes aniHat
+  from
+    transform: scale(1.2, .8)
+  8%
+    transform: scale(1)
+  to
+    transform: scale(1)
+
+.landing
+  display: flex
+  justify-content: center
+  align-items: center
+  min-height: 100vh
+  text-align: center
+  color: $color-white
+  &__logo
+    transform: rotate(-10deg)
+    &-img
+      max-width: 6rem
+      transform-origin: center bottom
+      animation:
+        name: aniHat
+        timing-function: cubic-bezier(1,.01,0,1.43)
+        iteration-count: infinite
+        duration: 5s
+  &__titles
+    grid-column: 2 / 3
+    grid-row: 1 / 2
+    display: flex
+    flex-direction: column
+    justify-content: center
+  &__title
+    font-size: 3rem
+    margin: 0
+    line-height: initial
+  &__subtitle
+    font-size: 1.2rem
+    margin-bottom: 0
+  &__start
+    display: block
+    border: 1px solid $color-white
+    width: 10rem
+    font-size: 1.3rem
+    text-transform: uppercase
+    padding: 1rem
+    border-radius: .4rem
+    margin: 0 auto
+    margin-top: 3rem
+    transition: .3s
+    text-decoration: initial
+    color: $color-white
+    &:hover
+      color: $color-green
+      background-color: $color-white
+      text-decoration: initial
+  &__background
+    position: relative
+    z-index: 100
+    animation:
+      name: aniSlideLanding
+      duration: 3s
+      timing-function: ease-in-out
+      iteration-count: infinite
+      direction: alternate
+    @include backgroundLanding()
+    background-color: $color-blue
+    &::before, &::after
+      display: block
+      content: ''
+      position: absolute
+      z-index: -1
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+      @include backgroundLanding()
+      animation:
+        name: aniSlideLanding
+        duration: 4s
+        timing-function: ease-in-out
+        iteration-count: infinite
+        direction: alternate-reverse
+    &::after
+      z-index: -2
+      animation:
+        duration: 5s
+        direction: alternate
