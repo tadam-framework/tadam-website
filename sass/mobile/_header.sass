@@ -2,11 +2,20 @@
   position: fixed
   top: 1rem
   right: 1rem
-  background: initial
-  padding: 0
-  margin: 0
-  border: initial
+  @include buttonReset()
   &__img
     opacity: .8
     margin: 0
     @include sizeSquare(3rem)
+.nav-close
+  position: fixed
+  right: 1rem
+  top: 1rem
+  @include sizeSquare(3rem)
+  @include buttonReset()
+  transform: translateX(5rem) rotate(360deg)
+  transition:
+    duration: 1s
+  z-index: 1200
+  &__show
+    transform: translateX(0) rotate(0)

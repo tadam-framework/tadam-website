@@ -9,9 +9,20 @@ import json from 'highlight.js/lib/languages/json';
 document.addEventListener('DOMContentLoaded', () => {
 
     // Menu mobile
-    document.querySelector('#nav-menu').addEventListener('click', function() {
+    function openMenu() {
         document.querySelector('.aside').classList.add('aside__show');
-    });
+        document.querySelector('.nav-close').classList.add('nav-close__show');
+    }
+    function closeMenu() {
+        document.querySelector('.aside').classList.remove('aside__show');
+        document.querySelector('.nav-close').classList.remove('nav-close__show');
+    }
+    //// Open
+    document.querySelector('#nav-menu').addEventListener('click', openMenu);
+    //// Close
+    document.querySelector('#nav-close').addEventListener('click', closeMenu);
+    //// Links
+    document.querySelectorAll('.aside__link').forEach(link => link.addEventListener('click', closeMenu));
 
     // Load languages highlight
     hljs.initHighlightingOnLoad();
