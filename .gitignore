@@ -3,4 +3,5 @@ docs/
 dist/
 node_modules/
 !docs/CNAME
-markdown/.DS_Store
+.DS_Store
+
