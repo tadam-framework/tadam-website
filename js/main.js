@@ -8,6 +8,11 @@ import json from 'highlight.js/lib/languages/json';
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // Menu mobile
+    document.querySelector('#nav-menu').addEventListener('click', function() {
+        document.querySelector('.aside').classList.add('aside__show');
+    });
+
     // Load languages highlight
     hljs.initHighlightingOnLoad();
     hljs.registerLanguage('shell', shell);

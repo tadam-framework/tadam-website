@@ -23,6 +23,10 @@ html(lang='en')
     link(href='sass/mobile.sass', rel='stylesheet', media='all and (max-width: 600px)')
     link(href='sass/desktop.sass', rel='stylesheet', media='all and (min-width: 600px)')
   body
+    header
+      nav
+        button.nav-menu#nav-menu
+          img.nav-menu__img(src="img/button-nav-mobile.svg")
     .landing.landing__background
       .container.landing__grid
         .landing__logo
@@ -34,7 +38,10 @@ html(lang='en')
     .main__grid
       aside.aside
         .aside__content
-          img.aside__logo(src='img/tadam-logo.svg')
+          img.aside__logo(src="img/tadam-logo.svg")
+          button.nav-close#nav-close
+            img.nav-close__img(src="img/close.svg")
+          img.aside__logo(src="img/tadam-logo.svg")
           nav.aside__nav
             h2.aside__title.aside__title--first Basics
             ul.aside__ul
