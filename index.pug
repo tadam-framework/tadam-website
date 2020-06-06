@@ -57,7 +57,7 @@ html(lang='en')
               li
                 a.aside__link(href="#templates") Templates
               li
-                a.aside__link.aside__link--soon(href="#requests") Requests
+                a.aside__link(href="#requests") Requests
               li
                 a.aside__link.aside__link--soon(href="#responses") Responses
             h2.aside__title Advances
@@ -153,6 +153,10 @@ html(lang='en')
             .mark#templates
             h1.main__title Templates
             include:markdown-it(html) markdown/basics/templates.md
+          section
+            .mark#requests
+            h1.main__title Requests
+            include:markdown-it(html) markdown/basics/requests.md
           section
             .mark#compile
             h1.main__title Compile
