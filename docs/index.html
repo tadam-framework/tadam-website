@@ -272,15 +272,18 @@ wizard: Merlin
 <pre><code class="language-django">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;body&gt;
-        Tadam is magic.
+        Olympia Theatre
     &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p>To invoke it I only have to import the function <strong>render-HTML</strong>.</p>
+<p>Only have to use the function <strong>render-HTML</strong>.</p>
 <pre><code class="language-clojure">(render-HTML [request] [path] [args]))
 </code></pre>
 <p>Example</p>
-<pre><code class="language-clojure">[tadam.templates :refer [render-HTML]]
+<pre><code class="language-clojure">;;;; View web
+(ns myproject.views.my-view
+  (:require
+    [tadam.templates :refer [render-HTML]]))
 
 (defn index
   ;; View HTML
@@ -297,7 +300,11 @@ wizard: Merlin
 &lt;/html&gt;
 </code></pre>
 <p>The View would be similar to the previous example but indicating its parameters.</p>
-<pre><code class="language-clojure">(defn index
+<pre><code class="language-clojure">(ns myproject.views.my-view
+  (:require
+    [tadam.templates :refer [render-HTML]]))
+
+(defn index
     ;; View HTML
     [req]
     (render-HTML req &quot;theatre.html&quot; {
@@ -315,8 +322,8 @@ wizard: Merlin
 &lt;/html&gt;
 </code></pre>
 <h2>HTML in layout</h2>
-<p>In case you need to repeat the same HTML structure, it is possible to extend a template.In case you need to repeat the same HTML structure, it is possible to extend a template or to define which zones will change in each page.</p>
-<p>I create a template in <code>/resources/templates/layouts/base.html</code> that will be my reference to generate new ones. It will contain everything that is repetitive: header, footer, navs... You define the zones, or <code>block</code>s, where you want to add the HTML.</p>
+<p>In case you need to <strong>repeat the same HTML</strong> structure, it is possible to extend a template. In case you need to repeat the same HTML structure, it is possible to <strong>extend a template</strong> or to define which zones will change in each page.</p>
+<p>I create a template in <strong>/resources/templates/layouts/base.html</strong> that will be my reference to generate new ones. It will contain everything that is repetitive: header, footer, navs... You define the zones, or <strong>block</strong>s, where you want to add the HTML.</p>
 <pre><code class="language-django">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -342,7 +349,7 @@ wizard: Merlin
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
-<p>Now it's time to define the page that will extend <code>base.html</code>, it will be in the <code>/resources/templates/public/welcome.html</code> path.</p>
+<p>Now it's time to define the page that will extend <strong>base.html</strong> with new template in <strong>/resources/templates/public/welcome.html</strong>.</p>
 <pre><code class="language-django">{% extends &quot;layouts/base.html&quot; %}
 
 {% block title %}
@@ -350,15 +357,42 @@ Welcome
 {% endblock %}
 
 {% block content %}
-&lt;h1 class=&quot;title-welcome&quot;&gt;Welcome to Tadam Framework &lt;/h1&gt;
-&lt;p class=&quot;logo-welcome&quot;&gt;
-    &lt;img class=&quot;logo-welcome&quot; alt=&quot;Tadam&quot; src=&quot;/img/tadam.svg&quot;&gt;
-&lt;/p&gt;
+&lt;h1 class=&quot;title-welcome&quot;&gt;Welcome to Olympia Theatre&lt;/h1&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Conclusum est enim contra Cyrenaicos satis acute, nihil ad Epicurum. Qui bonum omne in virtute ponit, is potest dicere perfici beatam vitam perfectione virtutis; Ecce aliud simile dissimile. &lt;/p&gt;
 {% endblock %}
+</code></pre>
+<p>The result will be:</p>
+<pre><code class="language-django">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.css&quot;&gt;
+    &lt;script src=&quot;/js/main.js&quot;&gt; &lt;/script&gt;
+    &lt;title&gt;Welcome | Olympia Theatre&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Welcome&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;/programme&quot;&gt;Programme&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+      &lt;h1 class=&quot;title-welcome&quot;&gt;Welcome to Olympia Theatre&lt;/h1&gt;
+      &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Conclusum est enim contra Cyrenaicos satis acute, nihil ad Epicurum. Qui bonum omne in virtute ponit, is potest dicere perfici beatam vitam perfectione virtutis; Ecce aliud simile dissimile. &lt;/p&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;
+        More information in our newsletter
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
 <h2>Markdown</h2>
 <p>It is possible to use Markdown files that will be transformed into HTML.</p>
-<pre><code class="language-clojure">[tadam.templates :refer [render-markdown]]
+<pre><code class="language-clojure">(ns myproject.views.my-view
+  (:require
+    [tadam.templates :refer [render-markdown]]))
 
 (render-markdown req &quot;theatre.md&quot; {})
 </code></pre>
@@ -367,13 +401,12 @@ Welcome
 <pre><code class="language-clojure">(render-JSON [request] [collection]))
 </code></pre>
 <p>Example</p>
-<pre><code class="language-clojure">[tadam.templates :refer [render-JSON]]
+<pre><code class="language-clojure">(ns myproject.views.my-view
+  (:require
+    [tadam.templates :refer [render-JSON]]))
 
-(render-JSON req {
-    :name &quot;Olympia&quot;
-    :surface 500
-    :opened 1915
-    })
+
+(render-JSON req {:name &quot;Olympia&quot; :surface 500 :opened 1915})
 </code></pre>
 <p>It will return a nice JSON with the right header.</p>
 <pre><code class="language-json">{
