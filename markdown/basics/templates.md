@@ -73,6 +73,54 @@ As a result I would return in the request.
 
 ## HTML in layout
 
+In case you need to repeat the same HTML structure, it is possible to extend a template.In case you need to repeat the same HTML structure, it is possible to extend a template or to define which zones will change in each page.
+
+I create a template in `/resources/templates/layouts/base.html` that will be my reference to generate new ones. It will contain everything that is repetitive: header, footer, navs... You define the zones, or `block`s, where you want to add the HTML.
+
+``` django
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/main.js"> </script>
+    <title>{% block title %}{% endblock %} | Olympia Theatre</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Welcome</a></li>
+                <li><a href="/programme">Programme</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        More information in our newsletter
+    </footer>
+</body>
+</html>
+```
+
+Now it's time to define the page that will extend `base.html`, it will be in the `/resources/templates/public/welcome.html` path.
+
+
+``` django
+{% extends "layouts/base.html" %}
+
+{% block title %}
+Welcome
+{% endblock %}
+
+{% block content %}
+<h1 class="title-welcome">Welcome to Tadam Framework </h1>
+<p class="logo-welcome">
+    <img class="logo-welcome" alt="Tadam" src="/img/tadam.svg">
+</p>
+{% endblock %}
+```
 
 ## Markdown
 
