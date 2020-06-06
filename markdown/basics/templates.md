@@ -12,12 +12,12 @@ Suppose you have an HTML template in the **/resources/templates/theatre.html** p
 <!DOCTYPE html>
 <html>
     <body>
-        Tadam is magic.
+        Olympia Theatre
     </body>
 </html>
 ```
 
-To invoke it I only have to import the function **render-HTML**.
+Only have to use the function **render-HTML**.
 
 ``` clojure
 (render-HTML [request] [path] [args]))
@@ -26,7 +26,10 @@ To invoke it I only have to import the function **render-HTML**.
 Example
 
 ``` clojure
-[tadam.templates :refer [render-HTML]]
+;;;; View web
+(ns myproject.views.my-view
+  (:require
+    [tadam.templates :refer [render-HTML]]))
 
 (defn index
   ;; View HTML
@@ -50,6 +53,10 @@ Suppose you have an HTML template in the **/resources/templates/theatre.html** p
 The View would be similar to the previous example but indicating its parameters.
 
 ``` clojure
+(ns myproject.views.my-view
+  (:require
+    [tadam.templates :refer [render-HTML]]))
+
 (defn index
     ;; View HTML
     [req]
@@ -73,9 +80,9 @@ As a result I would return in the request.
 
 ## HTML in layout
 
-In case you need to repeat the same HTML structure, it is possible to extend a template.In case you need to repeat the same HTML structure, it is possible to extend a template or to define which zones will change in each page.
+In case you need to **repeat the same HTML** structure, it is possible to extend a template. In case you need to repeat the same HTML structure, it is possible to **extend a template** or to define which zones will change in each page.
 
-I create a template in `/resources/templates/layouts/base.html` that will be my reference to generate new ones. It will contain everything that is repetitive: header, footer, navs... You define the zones, or `block`s, where you want to add the HTML.
+I create a template in **/resources/templates/layouts/base.html** that will be my reference to generate new ones. It will contain everything that is repetitive: header, footer, navs... You define the zones, or **block**s, where you want to add the HTML.
 
 ``` django
 <!DOCTYPE html>
@@ -104,8 +111,7 @@ I create a template in `/resources/templates/layouts/base.html` that will be my 
 </html>
 ```
 
-Now it's time to define the page that will extend `base.html`, it will be in the `/resources/templates/public/welcome.html` path.
-
+Now it's time to define the page that will extend **base.html** with new template in **/resources/templates/public/welcome.html**.
 
 ``` django
 {% extends "layouts/base.html" %}
@@ -115,11 +121,38 @@ Welcome
 {% endblock %}
 
 {% block content %}
-<h1 class="title-welcome">Welcome to Tadam Framework </h1>
-<p class="logo-welcome">
-    <img class="logo-welcome" alt="Tadam" src="/img/tadam.svg">
-</p>
+<h1 class="title-welcome">Welcome to Olympia Theatre</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Conclusum est enim contra Cyrenaicos satis acute, nihil ad Epicurum. Qui bonum omne in virtute ponit, is potest dicere perfici beatam vitam perfectione virtutis; Ecce aliud simile dissimile. </p>
 {% endblock %}
+```
+The result will be:
+
+``` django
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/main.js"> </script>
+    <title>Welcome | Olympia Theatre</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Welcome</a></li>
+                <li><a href="/programme">Programme</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+      <h1 class="title-welcome">Welcome to Olympia Theatre</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Conclusum est enim contra Cyrenaicos satis acute, nihil ad Epicurum. Qui bonum omne in virtute ponit, is potest dicere perfici beatam vitam perfectione virtutis; Ecce aliud simile dissimile. </p>
+    </main>
+    <footer>
+        More information in our newsletter
+    </footer>
+</body>
+</html>
 ```
 
 ## Markdown
@@ -127,7 +160,9 @@ Welcome
 It is possible to use Markdown files that will be transformed into HTML.
 
 ``` clojure
-[tadam.templates :refer [render-markdown]]
+(ns myproject.views.my-view
+  (:require
+    [tadam.templates :refer [render-markdown]]))
 
 (render-markdown req "theatre.md" {})
 ```
@@ -143,13 +178,12 @@ A function is available to convert collections into JSON.
 Example
 
 ``` clojure
-[tadam.templates :refer [render-JSON]]
+(ns myproject.views.my-view
+  (:require
+    [tadam.templates :refer [render-JSON]]))
 
-(render-JSON req {
-    :name "Olympia"
-    :surface 500
-    :opened 1915
-    })
+
+(render-JSON req {:name "Olympia" :surface 500 :opened 1915})
 ```
 
 It will return a nice JSON with the right header.
