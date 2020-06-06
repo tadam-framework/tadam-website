@@ -315,6 +315,47 @@ wizard: Merlin
 &lt;/html&gt;
 </code></pre>
 <h2>HTML in layout</h2>
+<p>In case you need to repeat the same HTML structure, it is possible to extend a template.In case you need to repeat the same HTML structure, it is possible to extend a template or to define which zones will change in each page.</p>
+<p>I create a template in <code>/resources/templates/layouts/base.html</code> that will be my reference to generate new ones. It will contain everything that is repetitive: header, footer, navs... You define the zones, or <code>block</code>s, where you want to add the HTML.</p>
+<pre><code class="language-django">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.css&quot;&gt;
+    &lt;script src=&quot;/js/main.js&quot;&gt; &lt;/script&gt;
+    &lt;title&gt;{% block title %}{% endblock %} | Olympia Theatre&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Welcome&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;/programme&quot;&gt;Programme&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+        {% block content %}{% endblock %}
+    &lt;/main&gt;
+    &lt;footer&gt;
+        More information in our newsletter
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Now it's time to define the page that will extend <code>base.html</code>, it will be in the <code>/resources/templates/public/welcome.html</code> path.</p>
+<pre><code class="language-django">{% extends &quot;layouts/base.html&quot; %}
+
+{% block title %}
+Welcome
+{% endblock %}
+
+{% block content %}
+&lt;h1 class=&quot;title-welcome&quot;&gt;Welcome to Tadam Framework &lt;/h1&gt;
+&lt;p class=&quot;logo-welcome&quot;&gt;
+    &lt;img class=&quot;logo-welcome&quot; alt=&quot;Tadam&quot; src=&quot;/img/tadam.svg&quot;&gt;
+&lt;/p&gt;
+{% endblock %}
+</code></pre>
 <h2>Markdown</h2>
 <p>It is possible to use Markdown files that will be transformed into HTML.</p>
 <pre><code class="language-clojure">[tadam.templates :refer [render-markdown]]
