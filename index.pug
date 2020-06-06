@@ -59,7 +59,7 @@ html(lang='en')
               li
                 a.aside__link(href="#requests") Requests
               li
-                a.aside__link.aside__link--soon(href="#responses") Responses
+                a.aside__link(href="#responses") Responses
             h2.aside__title Advances
             ul.aside__ul
               li
@@ -160,6 +160,11 @@ html(lang='en')
             .mark#requests
             h1.main__title Requests
             include:markdown-it(html) markdown/basics/requests.md
+          //// Requests
+          section
+            .mark#responses
+            h1.main__title Responses
+            include:markdown-it(html) markdown/basics/responses.md
           //// Compile
           section
             .mark#compile
