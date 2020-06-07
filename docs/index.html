@@ -489,6 +489,43 @@ Content-Type: text/xml;charset=utf-8
 &lt;?xml version=&quot;1.0&quot;?&gt; &lt;Name&gt; Tadam &lt;/Name&gt;
 </code></pre>
 <h2>Redirect</h2>
+<p>To make a redirect in your View you have within <strong>responses</strong> the utility <strong>redirect</strong>.</p>
+<pre><code class="language-clojure">(redirect [req] [url] [status]))
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-clojure">(ns myproject.views.my-view
+  (:require
+    [tadam.responses :refer [redirect]]))
+
+(defn index
+  ;; View HTML
+  [req]
+  (redirect req &quot;/contact/&quot;))
+</code></pre>
+<p>If he's not told otherwise, he'll use <strong>status 303</strong> (See Other).</p>
+<p>If you <strong>need another</strong> one, such as 301, you can customize the <strong>argument status</strong>.</p>
+<pre><code class="language-clojure">(ns myproject.views.my-view
+  (:require
+    [tadam.responses :refer [redirect]]))
+
+(defn index
+  ;; View HTML
+  [req]
+  (redirect req &quot;/blog/tadam-is-magic/&quot; 301))
+</code></pre>
+<p>Also <strong>redirect-permanent</strong> in case you want to use the <strong>308 state directly</strong>, although it can also be done like the previous examples.</p>
+<pre><code class="language-clojure">(redirect-permanent [req] [url]))
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-clojure">(ns myproject.views.my-view
+  (:require
+    [tadam.responses :refer [redirect-permanent]]))
+
+(defn index
+  ;; View HTML
+  [req]
+  (redirect-permanent req &quot;/blog/tadam-is-magic/&quot;))
+</code></pre>
 </section><section><div class="mark" id="compile"></div><h1 class="main__title">Compile</h1><p>Run the following command to build a <strong>jar</strong> file.</p>
 <pre><code class="language-shell">lein uberjar
 </code></pre>
