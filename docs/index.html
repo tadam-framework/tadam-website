@@ -450,23 +450,44 @@ Welcome
 (get-JSON req)
 ;; {:query &quot;Tadam&quot; :page 1} 
 </code></pre>
-</section><section><div class="mark" id="responses"></div><h1 class="main__title">Responses</h1><h2>Simple</h2>
-<pre><code class="language-clojure">(response req body status content-type))
+</section><section><div class="mark" id="responses"></div><h1 class="main__title">Responses</h1><p>When used in a View the <strong>(render-HTML)</strong> function, or any other <a href="#templates">template</a> element, it is not necessary to <strong>specify the request</strong>. In case you need to customize it you have a helper.</p>
+<pre><code class="language-clojure">(response [req] [body] [status] [content-type]))
 </code></pre>
-<p>Example</p>
+<p>At least the <strong>request</strong> and the <strong>body</strong> must be indicated.</p>
 <pre><code class="language-clojure">(ns myproject.views.my-view
   (:require
     [tadam.responses :refer [response]]))
 
-)
 (defn index
   ;; View HTML
   [req]
   (response req &quot;Hi Tadam&quot;))
-
 </code></pre>
-<p>Return to browser</p>
-<pre><code class="language-shell"></code></pre>
+<p>Return to browser.</p>
+<pre><code class="language-shell">HTTP/1.1 200 OK
+Content-Type: text/html;charset=utf-8
+
+Hi Tadam
+</code></pre>
+<p>Although it can be customized with <strong>status</strong> and <strong>content-type</strong>.</p>
+<pre><code class="language-clojure">(ns myproject.views.my-view
+  (:require
+    [tadam.responses :refer [response]]))
+
+(defn index
+  ;; View HTML
+  [req]
+  (response req &quot;&lt;?xml version=&quot;1.0&quot;?&gt;
+    &lt;Name&gt;
+        Tadam
+    &lt;/Name&gt;&quot; 201 &quot;text/xml;charset=utf-8&quot;))
+</code></pre>
+<p>Return to browser.</p>
+<pre><code class="language-shell">HTTP/1.1 201 OK
+Content-Type: text/xml;charset=utf-8
+
+&lt;?xml version=&quot;1.0&quot;?&gt; &lt;Name&gt; Tadam &lt;/Name&gt;
+</code></pre>
 <h2>Redirect</h2>
 </section><section><div class="mark" id="compile"></div><h1 class="main__title">Compile</h1><p>Run the following command to build a <strong>jar</strong> file.</p>
 <pre><code class="language-shell">lein uberjar
