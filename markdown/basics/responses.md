@@ -51,5 +51,57 @@ Content-Type: text/xml;charset=utf-8
 <?xml version="1.0"?> <Name> Tadam </Name>
 ```
 
-
 ## Redirect
+
+To make a redirect in your View you have within **responses** the utility **redirect**.
+
+``` clojure
+(redirect [req] [url] [status]))
+```
+
+Example:
+
+``` clojure
+(ns myproject.views.my-view
+  (:require
+    [tadam.responses :refer [redirect]]))
+
+(defn index
+  ;; View HTML
+  [req]
+  (redirect req "/contact/"))
+```
+
+If he's not told otherwise, he'll use **status 303** (See Other).
+
+If you **need another** one, such as 301, you can customize the **argument status**.
+
+``` clojure
+(ns myproject.views.my-view
+  (:require
+    [tadam.responses :refer [redirect]]))
+
+(defn index
+  ;; View HTML
+  [req]
+  (redirect req "/blog/tadam-is-magic/" 301))
+```
+
+Also **redirect-permanent** in case you want to use the **308 state directly**, although it can also be done like the previous examples.
+
+``` clojure
+(redirect-permanent [req] [url]))
+```
+
+Example:
+
+``` clojure
+(ns myproject.views.my-view
+  (:require
+    [tadam.responses :refer [redirect-permanent]]))
+
+(defn index
+  ;; View HTML
+  [req]
+  (redirect-permanent req "/blog/tadam-is-magic/"))
+```
