@@ -54,10 +54,10 @@ In the **View**, the variables would be collected as follows.
 (defn activate-account
   "Activate account"
   [req]
-    (def token (-> req :params :token))
-    (def email (-> req :params :email))
+  (let [token (-> req :params :token)
+        email (-> req :params :email)]
     ;; Your magic code
-    (redirect req "/auth/login/"))
+    (redirect req "/auth/login/")))
 ```
 
 ## Avoiding repetition
