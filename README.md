@@ -9,7 +9,7 @@
 
 ## Contribute
 
-To contribute or edit you must modify the markdown files that you will find in the markdown folder.
+To contribute or **edit you must modify the markdown files** that you will find in the `/markdown/` folder.
 
 ## Compile
 
