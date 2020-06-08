@@ -229,10 +229,10 @@ wizard: Merlin
 <pre><code class="language-clojure">(defn activate-account
   &quot;Activate account&quot;
   [req]
-    (def token (-&gt; req :params :token))
-    (def email (-&gt; req :params :email))
+  (let [token (-&gt; req :params :token)
+        email (-&gt; req :params :email)]
     ;; Your magic code
-    (redirect req &quot;/auth/login/&quot;))
+    (redirect req &quot;/auth/login/&quot;)))
 </code></pre>
 <h2>Avoiding repetition</h2>
 <p>At certain times there comes a point where you need to have a prefix for the routes.</p>
