@@ -2,8 +2,8 @@
   (GET "/" [] view-public/index))</code></pre></div><div class="introduction__text-2 introduction__text--tab"><h2 class="introduction__title">views.clj</h2><pre><code class="clojure">(defn index
   [req]
   (render-HTML req "welcome.html"
-    { :name "Tadam"
-      :time (System/currentTimeMillis) }))</code></pre></div><div class="introduction__text-3"><h2 class="introduction__title">welcome.html</h2><pre><code class="django">&lt;h1&gt;Welcome to {{ name }} Framework&lt;/h1&gt;
+    { name: "Tadam",
+      time: (System/currentTimeMillis) }))</code></pre></div><div class="introduction__text-3"><h2 class="introduction__title">welcome.html</h2><pre><code class="django">&lt;h1&gt;Welcome to {{ name }} Framework&lt;/h1&gt;
 &lt;p&gt;No bugs since: {{ time }}&lt;/p&gt;</code></pre></div><div class="introduction__text-4 introduction__text--tab"><h2 class="introduction__title">🎉 TADAM!!! 🎉</h2><pre><code class="django">&lt;h1&gt;Welcome to Tadam Framework&lt;/h1&gt;
 &lt;p&gt;No bugs since: 1590773922089&lt;/p&gt;</code></pre></div></div></section><section><div class="mark" id="installation"></div><h1 class="main__title">Installation</h1><h2>1. Make sure you have <strong>Openjdk</strong> or <strong>Oracle-jdk</strong> installed.</h2>
 <h3>Debian/Ubuntu</h3>
