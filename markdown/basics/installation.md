@@ -23,7 +23,7 @@ sudo apt install clojure leiningen
 ### Mac OS
 
 ``` shell
-brew install clojure leiningen
+brew install clojure/tools/clojure leiningen
 ```
 
 ## 3. Create a 🎩Tadam🎩 project.
