@@ -6,11 +6,11 @@ debug: true
 port: 7404
 ```
 
-- **domain**: Indicate which will be the domain of your application (http://example.com). In case you work locally or have a reverse proxy, it will not be necessary to modify it.
-- **debug**: If true, it enables an automatic code refresh and ignores CORS. Otherwise it assumes you are working in production and will block the CORS with respect to the domain.
+- **domain**: Indicates which will be the domain of your application (http://example.com). In case you work locally or have a reverse proxy, it will not be necessary to modify it.
+- **debug**: If true, it enables an automatic code refresh and ignores CORS. Otherwise it assumes you are working in production and will block the CORS in accordance to the domain.
 - **port**: Port you will use.
 
-Feel free to add as many as you need.
+Feel free to add as many variables as you need.
 
 For example let's **create the wizard variable and use it**.
 
