@@ -27,7 +27,7 @@ src/
         urls.clj
 ```
 
-Let's see the description of relevant sections.
+Let's see the description of the relevant sections.
 
 ## Root
 
