@@ -40,7 +40,7 @@ lein run
 
 Great 🎉. You already have your 🔥 own web server 🔥.
 
-Now open it your browser.
+Now open your browser.
 
 ``` shell
 localhost:7404
