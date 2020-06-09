@@ -110,8 +110,8 @@ html(lang='en')
                     (defn index
                       [req]
                       (render-HTML req "welcome.html"
-                        { name: "Tadam",
-                          time: (System/currentTimeMillis) }))
+                        { :name "Tadam"
+                          :time (System/currentTimeMillis) }))
               .introduction__text-3
                 h2.introduction__title welcome.html
                 pre
