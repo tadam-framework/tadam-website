@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Tadam Web Framework</title><link rel="icon" type="image/png" href="/favicon.60e2b505.png"><meta name="theme-color" content="#838383"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no"><meta name="author" content="Andros Fenollosa"><meta name="generator" content="Tadam"><meta name="keywords" content="Clojure, Web, Framework, template"><meta name="description" content="Magic Web development with Clojure, simple by default."><meta property="og:image" content="/tadam-opengraph.e4e3bc76.png"><meta property="og:title" content="Tadam Web Framework"><meta property="og:type" content="website"><meta property="og:url" content="img/tadam-opengraph.png"><meta name="twitter:card" content="summary"><meta name="twitter:creator" content="@androsfenollosa"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="400"><meta property="og:image:height" content="300"><meta property="og:image:alt" content="Logo Tadam"><link href="/mobile.78a76d07.css" rel="stylesheet" media="all and (max-width: 600px)"><link href="/desktop.b88a9943.css" rel="stylesheet" media="all and (min-width: 600px)"></head><body><header class="header"><nav><button class="nav-menu" id="nav-menu"><img class="nav-menu__img" src="/button-nav-mobile.c7939760.svg"></button></nav></header><button class="nav-close" id="nav-close"><img class="nav-close__img" src="/close.b20a7233.svg"></button><div class="landing landing__background"><div class="container landing__grid"><div class="landing__logo"><img class="landing__logo-img" src="/tadam-logo.de273db4.svg"></div><div class="landing__titles"><h2 class="landing__subtitle">No rabbits, just Clojure</h2><h1 class="landing__title">Tadam Web Framework</h1><a class="landing__start" href="#main">Start</a></div></div></div><div class="main__grid"><aside class="aside"><div class="aside__content"><img class="aside__logo" src="/tadam-logo.de273db4.svg"><nav class="aside__nav"><h2 class="aside__title aside__title--first">Basics</h2><ul class="aside__ul"><li><a class="aside__link" href="#installation">Installation</a></li><li><a class="aside__link" href="#directory">Directory Structure</a></li><li><a class="aside__link" href="#configuration">Configuration</a></li><li><a class="aside__link" href="#routing">Routing</a></li><li><a class="aside__link" href="#views">Views</a></li><li><a class="aside__link" href="#templates">Templates</a></li><li><a class="aside__link" href="#requests">Requests</a></li><li><a class="aside__link" href="#responses">Responses</a></li></ul><h2 class="aside__title">Advances</h2><ul class="aside__ul"><li><a class="aside__link aside__link--soon" href="#markdown">Email</a></li><li><a class="aside__link aside__link--soon" href="#forms">Forms</a></li><li><a class="aside__link aside__link--soon" href="#sessions">Sessions</a></li><li><a class="aside__link aside__link--soon" href="#database">Database</a></li></ul><h2 class="aside__title">Deployment</h2><ul class="aside__ul"><li><a class="aside__link" href="#compile">Compile</a></li><li><a class="aside__link" href="#service">Service</a></li><li><a class="aside__link" href="#reverse">Reverse proxy</a></li></ul><h2 class="aside__title">Community</h2><ul class="aside__ul"><li><a class="aside__link" href="#success">Success stories</a></li></ul></nav></div></aside><main class="main" id="main"><div class="container"><div class="github"><a href="https://github.com/tadam-framework/tadam-core"><img class="github__icon" src="/github.e03f6e2d.svg" alt="Github"></a><span class="github__button"><a class="github-button" href="https://github.com/tadam-framework/tadam-core" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star tadam Framework on GitHub">Star</a></span></div><section class="introduction"><p>Tadam is a minimalistic framework for creating dynamic <strong>function-oriented websites</strong>. All the <strong>potential of Clojure simplified</strong> for fast development. It could be in someway <strong>equivalent to Flask</strong>, but a little more modern.</p><p>The rest of the magic will come from you.</p><div class="introduction__grid"><div class="introduction__content-image"><img class="introduction__image" src="/list.501e3bf5.svg" alt="Order list"></div><div class="introduction__text-1"><h2 class="introduction__title">urls.clj</h2><pre><code class="clojure">(defroutes public
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Tadam Web Framework</title><link rel="icon" type="image/png" href="/favicon.60e2b505.png"><meta name="theme-color" content="#838383"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no"><meta name="author" content="Andros Fenollosa"><meta name="generator" content="Tadam"><meta name="keywords" content="Clojure, Web, Framework, template"><meta name="description" content="Magic Web development with Clojure, simple by default."><meta property="og:image" content="/tadam-opengraph.e4e3bc76.png"><meta property="og:title" content="Tadam Web Framework"><meta property="og:type" content="website"><meta property="og:url" content="img/tadam-opengraph.png"><meta name="twitter:card" content="summary"><meta name="twitter:creator" content="@androsfenollosa"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="400"><meta property="og:image:height" content="300"><meta property="og:image:alt" content="Logo Tadam"><link href="/mobile.78a76d07.css" rel="stylesheet" media="all and (max-width: 600px)"><link href="/desktop.b88a9943.css" rel="stylesheet" media="all and (min-width: 600px)"></head><body><header class="header"><nav><button class="nav-menu" id="nav-menu"><img class="nav-menu__img" src="/button-nav-mobile.c7939760.svg"></button></nav></header><button class="nav-close" id="nav-close"><img class="nav-close__img" src="/close.b20a7233.svg"></button><div class="landing landing__background"><div class="container landing__grid"><div class="landing__logo"><img class="landing__logo-img" src="/tadam-logo.de273db4.svg"></div><div class="landing__titles"><h2 class="landing__subtitle">No rabbits, just Clojure</h2><h1 class="landing__title">Tadam Web Framework</h1><a class="landing__start" href="#main">Start</a></div></div></div><div class="main__grid"><aside class="aside"><div class="aside__content"><img class="aside__logo" src="/tadam-logo.de273db4.svg"><nav class="aside__nav"><h2 class="aside__title aside__title--first">Basics</h2><ul class="aside__ul"><li><a class="aside__link" href="#installation">Installation</a></li><li><a class="aside__link" href="#directory">Directory Structure</a></li><li><a class="aside__link" href="#configuration">Configuration</a></li><li><a class="aside__link" href="#routing">Routing</a></li><li><a class="aside__link" href="#views">Views</a></li><li><a class="aside__link" href="#templates">Templates</a></li><li><a class="aside__link" href="#requests">Requests</a></li><li><a class="aside__link" href="#responses">Responses</a></li></ul><h2 class="aside__title">Advances</h2><ul class="aside__ul"><li><a class="aside__link" href="#email">Email</a></li><li><a class="aside__link aside__link--soon" href="#forms">Forms</a></li><li><a class="aside__link aside__link--soon" href="#sessions">Sessions</a></li><li><a class="aside__link aside__link--soon" href="#database">Database</a></li></ul><h2 class="aside__title">Deployment</h2><ul class="aside__ul"><li><a class="aside__link" href="#compile">Compile</a></li><li><a class="aside__link" href="#service">Service</a></li><li><a class="aside__link" href="#reverse">Reverse proxy</a></li></ul><h2 class="aside__title">Community</h2><ul class="aside__ul"><li><a class="aside__link" href="#success">Success stories</a></li></ul></nav></div></aside><main class="main" id="main"><div class="container"><div class="github"><a href="https://github.com/tadam-framework/tadam-core"><img class="github__icon" src="/github.e03f6e2d.svg" alt="Github"></a><span class="github__button"><a class="github-button" href="https://github.com/tadam-framework/tadam-core" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star tadam Framework on GitHub">Star</a></span></div><section class="introduction"><p>Tadam is a minimalistic framework for creating dynamic <strong>function-oriented websites</strong>. All the <strong>potential of Clojure simplified</strong> for fast development. It could be in someway <strong>equivalent to Flask</strong>, but a little more modern.</p><p>The rest of the magic will come from you.</p><div class="introduction__grid"><div class="introduction__content-image"><img class="introduction__image" src="/list.501e3bf5.svg" alt="Order list"></div><div class="introduction__text-1"><h2 class="introduction__title">urls.clj</h2><pre><code class="clojure">(defroutes public
   (GET "/" [] view-public/index))</code></pre></div><div class="introduction__text-2 introduction__text--tab"><h2 class="introduction__title">views.clj</h2><pre><code class="clojure">(defn index
   [req]
   (render-HTML req "welcome.html"
@@ -525,6 +525,57 @@ Content-Type: text/xml;charset=utf-8
   ;; View HTML
   [req]
   (redirect-permanent req &quot;/blog/tadam-is-magic/&quot;))
+</code></pre>
+</section><section><div class="mark" id="email"></div><h1 class="main__title">Email</h1><p>If you want to send emails before you must update the configuration variables in <strong>config.yaml</strong>.</p>
+<p>Add the following.</p>
+<pre><code class="language-yaml">smtp-from: &quot;no-reply@domain.com&quot;
+smtp-host: &quot;smtp.domain.com&quot;
+smtp-user: &quot;user&quot;
+smtp-password: &quot;password&quot;
+smtp-port: 587
+smtp-tls: true
+</code></pre>
+<p>Then all you have to do is use <strong>send</strong>.</p>
+<pre><code class="language-clojure">(send [config] [recipient email] [subject] [message HTML] [message plain])
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-clojure">(ns myproject.views.my-view
+  (:require
+   [myproject.config :refer [config]
+   [tadam.responses :refer [response]]
+   [tadam.email :refer [send]]))
+
+(defn send-message
+  ;; View Send email
+  [req]
+    ;; Send email
+    (send config &quot;client@email.com&quot; &quot;My subject&quot; &quot;&lt;h1&gt;Title&lt;/h1&gt;&lt;p&gt;Content&lt;/p&gt;&quot; &quot;Title\nContent&quot;)
+
+    ;; Response OK
+    (response req &quot;Send!!!!&quot;))
+</code></pre>
+<p>To make it easier to customize the HTML or plain text you can use <strong>render-template</strong>.</p>
+<pre><code class="language-clojure">(ns myproject.views.my-view
+  (:require
+   [myproject.config :refer [config]
+   [tadam.responses :refer [response]]
+   [tadam.templates :refer [render-template]]
+   [tadam.email :refer [send]]))
+
+(defn send-message
+  ;; View Send email
+  [req]
+    (let [params {:name &quot;Houdini&quot;
+                  :born 1874}]
+    ;; Send email
+    (send config 
+         &quot;client@email.com&quot; 
+         &quot;My subject&quot; 
+         (render-template &quot;emails/contact.html&quot; params)
+         (render-template &quot;emails/contact.txt&quot; params))
+
+    ;; Response OK
+    (response req &quot;Send!!!!&quot;)))
 </code></pre>
 </section><section><div class="mark" id="compile"></div><h1 class="main__title">Compile</h1><p>Run the following command to build a <strong>jar</strong> file.</p>
 <pre><code class="language-shell">lein uberjar
