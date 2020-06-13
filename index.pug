@@ -82,6 +82,8 @@ html(lang='en')
             ul.aside__ul
               li
                 a.aside__link(href="#success") Success stories
+              li
+                a.aside__link(href="#thanks") Thanks
       main.main#main
         .container
           .github
@@ -190,6 +192,11 @@ html(lang='en')
             .mark#success
             h1.main__title Success stories
             include:markdown-it(html) markdown/community/success-stories.md
+          //// Thanks
+          section.success__stories
+            .mark#thanks
+            h1.main__title Thanks
+            include:markdown-it(html) markdown/community/thanks.md
 
           // End pages
 
