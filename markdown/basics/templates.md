@@ -195,3 +195,21 @@ It will return a nice JSON with the right header.
   "opened": 1915
 }
 ```
+
+## Render templates to string
+
+In certain circumstances it is necessary to **render HTML templates to obtain a string**, for example when we want to prepare content to send an [email](#email) or because it is going to be saved in a new file.
+
+``` clojure
+(render-template [path template] [collection])
+```
+
+Example
+
+``` clojure
+(ns myproject.views.my-view
+  (:require
+   [tadam.templates :refer [render-template]]))
+
+(render-template "public/template.html" {:name "Olympia" :surface 500 :opened 1915})
+```
