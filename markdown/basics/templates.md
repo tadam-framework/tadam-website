@@ -1,4 +1,4 @@
-HTML templates can be displayed in **raw**, rendered **using parameters** or different **layouts**. On the other hand it is also possible to return **Markdown** or **JSON**.
+HTML templates can be displayed in **raw**, rendered **using parameters** or different **layouts**. As well as it is possible to return **Markdown** or **JSON**.
 
 All templates should be located in **/resources/templates/**.
 
@@ -17,7 +17,7 @@ Suppose you have an HTML template in the **/resources/templates/theatre.html** p
 </html>
 ```
 
-Only have to use the function **render-HTML**.
+Then you just need to use the function **render-HTML**.
 
 ``` clojure
 (render-HTML [request] [path] [args]))
@@ -67,7 +67,7 @@ The View would be similar to the previous example but indicating its parameters.
     }))
 ```
 
-As a result I would return in the request.
+As a result the request is returned.
 
 ``` django
 <!DOCTYPE html>
@@ -80,9 +80,9 @@ As a result I would return in the request.
 
 ## HTML in layout
 
-In case you need to **repeat the same HTML** structure, it is possible to extend a template. In case you need to repeat the same HTML structure, it is possible to **extend a template** or to define which zones will change in each page.
+In case you need to **repeat the same HTML** structure, then it is possible to **extend a template** or to define which part will change at each page HTML in layout.
 
-I create a template in **/resources/templates/layouts/base.html** that will be my reference to generate new ones. It will contain everything that is repetitive: header, footer, navs... You define the zones, or **block**s, where you want to add the HTML.
+Let's create a template in **/resources/templates/layouts/base.html** that will our reference to generate new ones. It will contain all the recurrent parts, such as header, footer, navs, etc. Then we define where should be added **block**s that will be different at each page.
 
 ``` django
 <!DOCTYPE html>
@@ -125,7 +125,7 @@ Welcome
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Conclusum est enim contra Cyrenaicos satis acute, nihil ad Epicurum. Qui bonum omne in virtute ponit, is potest dicere perfici beatam vitam perfectione virtutis; Ecce aliud simile dissimile. </p>
 {% endblock %}
 ```
-The result will be:
+The result is:
 
 ``` django
 <!DOCTYPE html>
@@ -169,7 +169,7 @@ It is possible to use Markdown files that will be transformed into HTML.
 
 ## JSON
 
-A function is available to convert collections into JSON.
+There is a function available to convert collections to JSON.
 
 ``` clojure
 (render-JSON [request] [collection]))
@@ -186,7 +186,7 @@ Example
 (render-JSON req {:name "Olympia" :surface 500 :opened 1915})
 ```
 
-It will return a nice JSON with the right header.
+It returns a nice JSON with the right header.
 
 ``` json
 {

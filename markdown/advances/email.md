@@ -38,7 +38,7 @@ Example:
     (response req "Send!!!!"))
 ```
 
-To make it easier to customize the HTML or plain text you can use **render-template**.
+You can do this easily by customizing the HTML or plain text with **render-template**.
 
 ``` clojure
 (ns myproject.views.my-view

@@ -1,13 +1,13 @@
 ## Simple route
 
-Inside **urls.clj** you can enter an example where 2 routes are declared linked to their respective views.
+Inside **urls.clj** you can find an example where 2 routes are declared and linked to their respective views.
 
-If you want to **add new routes** you must **follow 4 steps**.
+If you want to **add new routes** you should **follow 4 steps**.
 
 1. Import the View.
 2. Use or create a group of Routes.
 3. Define the routes with View.
-4. Add your group to the set of all routes (Optional, only if it does not exist). You should always leave at the end of the resources-routes list, which are used for static content.
+4. Add your group to the set of all routes (Optional, only if it does not exist). You should always leave at the end **resources-routes**, are used for static content.
 
 
 ``` clojure
@@ -48,7 +48,7 @@ In the following example we have **routes that require different parameters**.
   (GET "/auth/activate-account/:token/:email/" [token email] view-auth/activate-account))
 ```
 
-In the **View**, the variables would be collected as follows.
+In the **View**, the variables are collected as follows.
 
 ``` clojure
 (defn activate-account
@@ -62,7 +62,7 @@ In the **View**, the variables would be collected as follows.
 
 ## Avoiding repetition
 
-At certain times there comes a point where you need to have a prefix for the routes.
+At some point you will need to have a prefix for the routes.
 
 ``` clojure
 (defroutes user-routes
