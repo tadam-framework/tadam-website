@@ -35,6 +35,7 @@ lein new tadam-lite myproject
 ## 4. Run.
 
 ``` shell
+cd myproject
 lein run
 ```
 
