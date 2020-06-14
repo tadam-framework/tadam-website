@@ -7,8 +7,8 @@ server {
 
         server_name tadam.domain.com;
 
-        access_log /var/log/glosa_access.log;
-        error_log /var/log/glosa_error.log;
+        access_log /var/log/myproject_access.log;
+        error_log /var/log/myproject_error.log;
 
         location / {
             proxy_pass http://localhost:7404/;
