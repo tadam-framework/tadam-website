@@ -23,7 +23,10 @@ jobs:
           npm i
       
     - name: Build
-      run: parcel build index.pug --out-dir docs
+      run: |
+        rm -rf docs
+        parcel build index.pug --out-dir docs
+        echo "www.tadam-framework.dev" > docs/CNAME
       
     - name: Deploy
       run: |
