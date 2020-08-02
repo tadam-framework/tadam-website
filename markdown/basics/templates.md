@@ -1,4 +1,3 @@
-{% raw %}
 HTML templates can be displayed in **raw**, rendered **using parameters** or different **layouts**. As well as it is possible to return **Markdown** or **JSON**.
 
 All templates should be located in **/resources/templates/**.
@@ -214,4 +213,3 @@ Example
 
 (render-template "public/template.html" {:name "Olympia" :surface 500 :opened 1915})
 ```
-{% endraw %}
