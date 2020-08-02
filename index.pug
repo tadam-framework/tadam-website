@@ -32,16 +32,16 @@ html(lang='en')
     .landing.landing__background
       .container.landing__grid
         .landing__logo
-          img.landing__logo-img(src='img/tadam-logo.svg')
+          img.landing__logo-img(src='img/tadam-logo.svg', alt="Brand")
         .landing__titles
           h2.landing__subtitle No rabbits, just Clojure
           h1.landing__title Tadam Web Framework
           a.landing__start(href="#main") Start
     .main__grid
-      aside.aside
+      aside.aside(role="Sidebar")
         .aside__content
-          img.aside__logo(src="img/tadam-logo.svg")
-          nav.aside__nav
+          img.aside__logo(src="img/tadam-logo.svg", aria-hidden="true")
+          nav.aside__nav(role="nav")
             h2.aside__title.aside__title--first Basics
             ul.aside__ul
               li
@@ -84,7 +84,7 @@ html(lang='en')
                 a.aside__link(href="#success") Success stories
               li
                 a.aside__link(href="#thanks") Thanks
-      main.main#main
+      main.main#main(role="article")
         .container
           .github
             a(href='https://github.com/tadam-framework/tadam-core')
