@@ -22,11 +22,11 @@ npm install -g parcel-bundler
 ### Dev
 
 ``` sh
-parcel index.html --out-dir docs
+parcel index.pug --out-dir docs
 ```
 
 ### Production
 
 ``` sh
-parcel build index.html --out-dir docs
+parcel build index.pug --out-dir docs
 ```

@@ -1,11 +1,11 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Tadam Web Framework</title><link rel="icon" type="image/png" href="/favicon.60e2b505.png"><meta name="theme-color" content="#838383"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no"><meta name="author" content="Andros Fenollosa"><meta name="generator" content="Tadam"><meta name="keywords" content="Clojure, Web, Framework, template"><meta name="description" content="Tadam is a minimalistic framework for creating dynamic function-oriented websites. All the potential of Clojure simplified for fast development. It could be in someway equivalent to Flask, but a little more modern."><meta property="og:image" content="/tadam-opengraph.e4e3bc76.png"><meta property="og:title" content="Tadam Web Framework"><meta property="og:type" content="website"><meta property="og:url" content="img/tadam-opengraph.png"><meta name="twitter:card" content="summary"><meta name="twitter:creator" content="@androsfenollosa"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="400"><meta property="og:image:height" content="300"><meta property="og:image:alt" content="Logo Tadam"><link href="/mobile.78a76d07.css" rel="stylesheet" media="all and (max-width: 600px)"><link href="/desktop.b88a9943.css" rel="stylesheet" media="all and (min-width: 600px)"></head><body><header class="header"><nav><button class="nav-menu" id="nav-menu"><img class="nav-menu__img" src="/button-nav-mobile.c7939760.svg"></button></nav></header><button class="nav-close" id="nav-close"><img class="nav-close__img" src="/close.b20a7233.svg"></button><div class="landing landing__background"><div class="container landing__grid"><div class="landing__logo"><img class="landing__logo-img" src="/tadam-logo.de273db4.svg"></div><div class="landing__titles"><h2 class="landing__subtitle">No rabbits, just Clojure</h2><h1 class="landing__title">Tadam Web Framework</h1><a class="landing__start" href="#main">Start</a></div></div></div><div class="main__grid"><aside class="aside"><div class="aside__content"><img class="aside__logo" src="/tadam-logo.de273db4.svg"><nav class="aside__nav"><h2 class="aside__title aside__title--first">Basics</h2><ul class="aside__ul"><li><a class="aside__link" href="#installation">Installation</a></li><li><a class="aside__link" href="#directory">Directory Structure</a></li><li><a class="aside__link" href="#configuration">Configuration</a></li><li><a class="aside__link" href="#routing">Routing</a></li><li><a class="aside__link" href="#views">Views</a></li><li><a class="aside__link" href="#templates">Templates</a></li><li><a class="aside__link" href="#requests">Requests</a></li><li><a class="aside__link" href="#responses">Responses</a></li></ul><h2 class="aside__title">Advances</h2><ul class="aside__ul"><li><a class="aside__link" href="#email">Email</a></li><li><a class="aside__link aside__link--soon" href="#forms">Forms</a></li><li><a class="aside__link aside__link--soon" href="#sessions">Sessions</a></li><li><a class="aside__link aside__link--soon" href="#database">Database</a></li></ul><h2 class="aside__title">Deployment</h2><ul class="aside__ul"><li><a class="aside__link" href="#compile">Compile</a></li><li><a class="aside__link" href="#service">Service</a></li><li><a class="aside__link" href="#reverse">Reverse proxy</a></li></ul><h2 class="aside__title">Community</h2><ul class="aside__ul"><li><a class="aside__link" href="#success">Success stories</a></li><li><a class="aside__link" href="#thanks">Thanks</a></li></ul></nav></div></aside><main class="main" id="main"><div class="container"><div class="github"><a href="https://github.com/tadam-framework/tadam-core"><img class="github__icon" src="/github.e03f6e2d.svg" alt="Github"></a><span class="github__button"><a class="github-button" href="https://github.com/tadam-framework/tadam-core" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star tadam Framework on GitHub">Star</a></span></div><section class="introduction"><p>Tadam is a minimalistic framework for creating dynamic <strong>function-oriented websites</strong>. All the <strong>potential of Clojure simplified</strong> for fast development. It could be in someway <strong>equivalent to Flask</strong>, but a little more modern.</p><p>The rest of the magic will come from you.</p><div class="introduction__grid"><div class="introduction__content-image"><img class="introduction__image" src="/list.501e3bf5.svg" alt="Order list"></div><div class="introduction__text-1"><h2 class="introduction__title">urls.clj</h2><pre><code class="clojure">(defroutes public
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Tadam Web Framework</title><link rel="icon" type="image/png" href="/favicon.08708974.png"><meta name="theme-color" content="#838383"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no"><meta name="author" content="Andros Fenollosa"><meta name="generator" content="Tadam"><meta name="keywords" content="Clojure, Web, Framework, template"><meta name="description" content="Tadam is a minimalistic framework for creating dynamic function-oriented websites. All the potential of Clojure simplified for fast development. It could be in someway equivalent to Flask, but a little more modern."><meta property="og:image" content="/tadam-opengraph.66e89abf.png"><meta property="og:title" content="Tadam Web Framework"><meta property="og:type" content="website"><meta property="og:url" content="img/tadam-opengraph.png"><meta name="twitter:card" content="summary"><meta name="twitter:creator" content="@androsfenollosa"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="400"><meta property="og:image:height" content="300"><meta property="og:image:alt" content="Logo Tadam"><link href="/mobile.47d47bf4.css" rel="stylesheet" media="all and (max-width: 600px)"><link href="/desktop.089edab5.css" rel="stylesheet" media="all and (min-width: 600px)"><script src="/mobile.47d47bf4.js"></script><script src="/desktop.089edab5.js"></script></head><body><header class="header"><nav><button class="nav-menu" id="nav-menu"><img class="nav-menu__img" src="/button-nav-mobile.587fdd62.svg"></button></nav></header><button class="nav-close" id="nav-close"><img class="nav-close__img" src="/close.24fb46be.svg"></button><div class="landing landing__background"><div class="container landing__grid"><div class="landing__logo"><img class="landing__logo-img" src="/tadam-logo.b9796e7a.svg"></div><div class="landing__titles"><h2 class="landing__subtitle">No rabbits, just Clojure</h2><h1 class="landing__title">Tadam Web Framework</h1><a class="landing__start" href="#main">Start</a></div></div></div><div class="main__grid"><aside class="aside"><div class="aside__content"><img class="aside__logo" src="/tadam-logo.b9796e7a.svg"><nav class="aside__nav"><h2 class="aside__title aside__title--first">Basics</h2><ul class="aside__ul"><li><a class="aside__link" href="#installation">Installation</a></li><li><a class="aside__link" href="#directory">Directory Structure</a></li><li><a class="aside__link" href="#configuration">Configuration</a></li><li><a class="aside__link" href="#routing">Routing</a></li><li><a class="aside__link" href="#views">Views</a></li><li><a class="aside__link" href="#templates">Templates</a></li><li><a class="aside__link" href="#requests">Requests</a></li><li><a class="aside__link" href="#responses">Responses</a></li></ul><h2 class="aside__title">Advances</h2><ul class="aside__ul"><li><a class="aside__link" href="#email">Email</a></li><li><a class="aside__link aside__link--soon" href="#forms">Forms</a></li><li><a class="aside__link aside__link--soon" href="#sessions">Sessions</a></li><li><a class="aside__link aside__link--soon" href="#database">Database</a></li></ul><h2 class="aside__title">Deployment</h2><ul class="aside__ul"><li><a class="aside__link" href="#compile">Compile</a></li><li><a class="aside__link" href="#service">Service</a></li><li><a class="aside__link" href="#reverse">Reverse proxy</a></li></ul><h2 class="aside__title">Community</h2><ul class="aside__ul"><li><a class="aside__link" href="#success">Success stories</a></li><li><a class="aside__link" href="#thanks">Thanks</a></li></ul></nav></div></aside><main class="main" id="main"><div class="container"><div class="github"><a href="https://github.com/tadam-framework/tadam-core"><img class="github__icon" src="/github.ae9e7421.svg" alt="Github"></a><!-- Place this tag where you want the button to render.--><span class="github__button"><a class="github-button" href="https://github.com/tadam-framework/tadam-core" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star tadam Framework on GitHub">Star</a></span></div><!-- Introduction--><section class="introduction"><p>Tadam is a minimalistic framework for creating dynamic <strong>function-oriented websites</strong>. All the <strong>potential of  Clojure simplified</strong> for fast development. It could be in someway <strong>equivalent to Flask</strong>, but a little more modern.</p><p>The rest of the magic will come from you.</p><div class="introduction__grid"><div class="introduction__content-image"><img class="introduction__image" src="/list.3e764698.svg" alt="Order list"></div><div class="introduction__text-1"><h2 class="introduction__title">urls.clj</h2><pre><code class="clojure">(defroutes public
   (GET "/" [] view-public/index))</code></pre></div><div class="introduction__text-2 introduction__text--tab"><h2 class="introduction__title">views.clj</h2><pre><code class="clojure">(defn index
   [req]
   (render-HTML req "welcome.html"
     { :name "Tadam"
       :time (System/currentTimeMillis) }))</code></pre></div><div class="introduction__text-3"><h2 class="introduction__title">welcome.html</h2><pre><code class="django">&lt;h1&gt;Welcome to {{ name }} Framework&lt;/h1&gt;
 &lt;p&gt;No bugs since: {{ time }}&lt;/p&gt;</code></pre></div><div class="introduction__text-4 introduction__text--tab"><h2 class="introduction__title">🎉 TADAM!!! 🎉</h2><pre><code class="django">&lt;h1&gt;Welcome to Tadam Framework&lt;/h1&gt;
-&lt;p&gt;No bugs since: 1590773922089&lt;/p&gt;</code></pre></div></div></section><section><div class="mark" id="installation"></div><h1 class="main__title">Installation</h1><h2>1. Make sure you have <strong>Openjdk</strong> or <strong>Oracle-jdk</strong> installed.</h2>
+&lt;p&gt;No bugs since: 1590773922089&lt;/p&gt;</code></pre></div></div></section><!-- Pages--><!--// Installation--><section><div class="mark" id="installation"></div><h1 class="main__title">Installation</h1><h2>1. Make sure you have <strong>Openjdk</strong> or <strong>Oracle-jdk</strong> installed.</h2>
 <h3>Debian/Ubuntu</h3>
 <pre><code class="language-shell">sudo apt install default-jdk
 </code></pre>
@@ -30,7 +30,7 @@ lein run
 <p>Now open your browser.</p>
 <pre><code class="language-shell">localhost:7404
 </code></pre>
-</section><section><div class="mark" id="directory"></div><h1 class="main__title">Directory Structure</h1><p>When you generate your project you will find the following structure.</p>
+</section><!--// Directory--><section><div class="mark" id="directory"></div><h1 class="main__title">Directory Structure</h1><p>When you generate your project you will find the following structure.</p>
 <pre><code class="language-shell">config.yaml
 project.clj
 README.md
@@ -155,7 +155,7 @@ src/
 </tr>
 </tbody>
 </table>
-</section><section><div class="mark" id="configuration"></div><h1 class="main__title">Configuration</h1><p>By default you will have a <strong>config.yaml</strong> file like the one below.</p>
+</section><!--// Configuration--><section><div class="mark" id="configuration"></div><h1 class="main__title">Configuration</h1><p>By default you will have a <strong>config.yaml</strong> file like the one below.</p>
 <pre><code class="language-yaml">domain: &quot;http://localhost&quot;
 debug: true
 port: 7404
@@ -185,7 +185,7 @@ wizard: Merlin
 
 &quot; Merlin
 </code></pre>
-</section><section><div class="mark" id="routing"></div><h1 class="main__title">Routing</h1><h2>Simple route</h2>
+</section><!--// Routing--><section><div class="mark" id="routing"></div><h1 class="main__title">Routing</h1><h2>Simple route</h2>
 <p>Inside <strong>urls.clj</strong> you can find an example where 2 routes are declared and linked to their respective views.</p>
 <p>If you want to <strong>add new routes</strong> you should <strong>follow 4 steps</strong>.</p>
 <ol>
@@ -249,7 +249,7 @@ wizard: Merlin
     (GET &quot;/signup&quot; [] ...)
     (GET &quot;/recovery-password&quot; [] ...)))
 </code></pre>
-</section><section><div class="mark" id="views"></div><h1 class="main__title">Views</h1><p>The views are used to include the logic of each route.</p>
+</section><!--// Views--><section><div class="mark" id="views"></div><h1 class="main__title">Views</h1><p>The views are used to include the logic of each route.</p>
 <p>In this example, an HTML template is rendered.</p>
 <pre><code class="language-clojure">(defn index
   ;; View HTML
@@ -265,7 +265,7 @@ wizard: Merlin
 ;; { &quot;result&quot;: true }
 </code></pre>
 <p>You can see more in <a href="#responses">Responses</a>.</p>
-</section><section><div class="mark" id="templates"></div><h1 class="main__title">Templates</h1><p>HTML templates can be displayed in <strong>raw</strong>, rendered <strong>using parameters</strong> or different <strong>layouts</strong>. As well as it is possible to return <strong>Markdown</strong> or <strong>JSON</strong>.</p>
+</section><!--// Templates--><section><div class="mark" id="templates"></div><h1 class="main__title">Templates</h1><p>HTML templates can be displayed in <strong>raw</strong>, rendered <strong>using parameters</strong> or different <strong>layouts</strong>. As well as it is possible to return <strong>Markdown</strong> or <strong>JSON</strong>.</p>
 <p>All templates should be located in <strong>/resources/templates/</strong>.</p>
 <p>The syntax is inspired by Django. It is generated by <a href="https://github.com/yogthos/Selmer">Selmer</a>, you can consult its documentation for more advanced topics such as loops or filters.</p>
 <h2>HTML</h2>
@@ -427,7 +427,7 @@ Welcome
 
 (render-template &quot;public/template.html&quot; {:name &quot;Olympia&quot; :surface 500 :opened 1915})
 </code></pre>
-</section><section><div class="mark" id="requests"></div><h1 class="main__title">Requests</h1><h2>Params</h2>
+</section><!--// Requests--><section><div class="mark" id="requests"></div><h1 class="main__title">Requests</h1><h2>Params</h2>
 <h3>GET</h3>
 <p>From the following URL we can capture the variable <strong>query</strong>.</p>
 <pre><code class="language-shell">curl https://mydomain.com/?query=Tadam
@@ -462,7 +462,7 @@ Welcome
 (get-JSON req)
 ;; {:query &quot;Tadam&quot; :page 1} 
 </code></pre>
-</section><section><div class="mark" id="responses"></div><h1 class="main__title">Responses</h1><p>When used in a View the <strong>(render-HTML)</strong> function, or any other <a href="#templates">template</a> element, it is not necessary to <strong>specify the request</strong>. In case you need to customize it you have a helper.</p>
+</section><!--// Requests--><section><div class="mark" id="responses"></div><h1 class="main__title">Responses</h1><p>When used in a View the <strong>(render-HTML)</strong> function, or any other <a href="#templates">template</a> element, it is not necessary to <strong>specify the request</strong>. In case you need to customize it you have a helper.</p>
 <pre><code class="language-clojure">(response [req] [body] [status] [content-type]))
 </code></pre>
 <p>At least the <strong>request</strong> and the <strong>body</strong> must be indicated.</p>
@@ -538,7 +538,7 @@ Content-Type: text/xml;charset=utf-8
   [req]
   (redirect-permanent req &quot;/blog/tadam-is-magic/&quot;))
 </code></pre>
-</section><section><div class="mark" id="email"></div><h1 class="main__title">Email</h1><p>If you want to send emails before you must update the configuration variables in <strong>config.yaml</strong>.</p>
+</section><!--// Email--><section><div class="mark" id="email"></div><h1 class="main__title">Email</h1><p>If you want to send emails before you must update the configuration variables in <strong>config.yaml</strong>.</p>
 <p>Add the following.</p>
 <pre><code class="language-yaml">smtp-from: &quot;no-reply@domain.com&quot;
 smtp-host: &quot;smtp.domain.com&quot;
@@ -589,11 +589,11 @@ smtp-tls: true
     ;; Response OK
     (response req &quot;Send!!!!&quot;)))
 </code></pre>
-</section><section><div class="mark" id="compile"></div><h1 class="main__title">Compile</h1><p>Run the following command to build a <strong>jar</strong> file.</p>
+</section><!--// Compile--><section><div class="mark" id="compile"></div><h1 class="main__title">Compile</h1><p>Run the following command to build a <strong>jar</strong> file.</p>
 <pre><code class="language-shell">lein uberjar
 </code></pre>
 <p>After this two files should be created in <strong>target/</strong>. We will use the standalone version: <strong>{project name}-standalone.jar</strong>.</p>
-</section><section><div class="mark" id="service"></div><h1 class="main__title">Service</h1><h3>Systemctl</h3>
+</section><!--// Service--><section><div class="mark" id="service"></div><h1 class="main__title">Service</h1><h3>Systemctl</h3>
 <p>To create a service in Linux is done like any application in Java. Below you can see an example.</p>
 <p>Create a file in the following path: <strong>/etc/systemd/system/tadam-project.service</strong>.</p>
 <p>Add the content.</p>
@@ -614,7 +614,7 @@ WantedBy=multi-user.target
 <pre><code class="language-shell">sudo systemctl enable tadam-project
 sudo systemctl start tadam-project
 </code></pre>
-</section><section><div class="mark" id="reverse"></div><h1 class="main__title">Reverse Proxy</h1><h3>Nginx</h3>
+</section><!--// Reverse Proxy--><section><div class="mark" id="reverse"></div><h1 class="main__title">Reverse Proxy</h1><h3>Nginx</h3>
 <p>With Nginx it's pretty quick and easy. You can use it as a reverse proxy, since Glosa contains its own web server (Jetty). You can see an example of configuration that can be useful.</p>
 <pre><code class="language-shell">server {
 
@@ -632,7 +632,7 @@ sudo systemctl start tadam-project
         }
 }
 </code></pre>
-</section><section class="success__stories"><div class="mark" id="success"></div><h1 class="main__title">Success stories</h1><p><a href="https://github.com/glosa/glosa-server"><img src="https://cdn.jsdelivr.net/gh/glosa/glosa-server/media/logo.png" alt="Glosa"></a></p>
+</section><!--// Success stories--><section class="success__stories"><div class="mark" id="success"></div><h1 class="main__title">Success stories</h1><p><a href="https://github.com/glosa/glosa-server"><img src="https://cdn.jsdelivr.net/gh/glosa/glosa-server/media/logo.png" alt="Glosa"></a></p>
 <p>Comments for static sites. Clone of Disqus, but faster, Opensource and sexy.</p>
 <p><a href="https://is-wordpress.andros.dev/"><img src="https://is-wordpress.andros.dev/img/screenshot.png" alt="Is it wordpress"></a></p>
 <p>Free online service that tells you if a site is made with WordPress using proprietary techniques.</p>
@@ -642,5 +642,12 @@ sudo systemctl start tadam-project
 <p>👇</p>
 <pre><code class="language-shell">X-Powered-By: Clojure/Tadam
 </code></pre>
-</section><section class="success__stories"><div class="mark" id="thanks"></div><h1 class="main__title">Thanks</h1><p><a href="https://github.com/GetRawFish">Valentina Rubane</a>: Revision of texts in English.</p>
-</section><footer class="footer"><p>2020 Tadam Framework | Author: <a href="https://programadorwebvalencia.com/" target="_blank">Andros Fenollosa</a></p></footer></div></main></div><script async defer src="https://buttons.github.io/buttons.js"></script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-46470654-7"></script><script>function a(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],a("js",new Date),a("config","UA-46470654-7");</script><script defer src="/main.62f14422.js"></script></body></html>
+</section><!--// Thanks--><section class="success__stories"><div class="mark" id="thanks"></div><h1 class="main__title">Thanks</h1><p><a href="https://github.com/GetRawFish">Valentina Rubane</a>: Revision of texts in English.</p>
+</section><!-- End pages--><footer class="footer"><p>2020 Tadam Framework | Author: <a href="https://programadorwebvalencia.com/" target="_blank">Andros Fenollosa</a></p></footer></div></main></div><!-- Place this tag in your head or just before your close body tag.--><script async="" defer="" src="https://buttons.github.io/buttons.js"></script><!-- Global site tag (gtag.js) - Google Analytics--><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-46470654-7"></script><script>window.dataLayer = window.dataLayer || [];
+
+function gtag() {
+  dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+gtag('config', 'UA-46470654-7');</script><!-- My javascript--><script defer="" src="/main.fb6bbcaf.js"></script></body></html>

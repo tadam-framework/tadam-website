@@ -58,4 +58,25 @@ document.addEventListener('DOMContentLoaded', () => {
             asideContent.style.transform = `translateY(0)`;
         }, delay);
     });
+
+    // Add dinamic class mark link in scroll
+    let marks = document.querySelectorAll('.mark');
+    let links = document.querySelectorAll('a.aside__link');
+
+    const onIntersection = (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // Remove all mark class
+                links.forEach(element => element.classList.remove('mark'));
+                // Add mark class
+                let myId = entry.target.querySelector('.mark').getAttribute('id');
+                document.querySelector(`a.aside__link[href="#${myId}"]`).classList.add('mark');
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(onIntersection);
+    marks.forEach((element) => {
+        observer.observe(element.parentNode);
+    });
 });
