@@ -1,0 +1,646 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Tadam Web Framework</title><link rel="icon" type="image/png" href="/favicon.60e2b505.png"><meta name="theme-color" content="#838383"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no"><meta name="author" content="Andros Fenollosa"><meta name="generator" content="Tadam"><meta name="keywords" content="Clojure, Web, Framework, template"><meta name="description" content="Tadam is a minimalistic framework for creating dynamic function-oriented websites. All the potential of Clojure simplified for fast development. It could be in someway equivalent to Flask, but a little more modern."><meta property="og:image" content="/tadam-opengraph.e4e3bc76.png"><meta property="og:title" content="Tadam Web Framework"><meta property="og:type" content="website"><meta property="og:url" content="img/tadam-opengraph.png"><meta name="twitter:card" content="summary"><meta name="twitter:creator" content="@androsfenollosa"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="400"><meta property="og:image:height" content="300"><meta property="og:image:alt" content="Logo Tadam"><link href="/mobile.38886bec.css" rel="stylesheet" media="all and (max-width: 600px)"><link href="/desktop.2e40e335.css" rel="stylesheet" media="all and (min-width: 600px)"></head><body><header class="header"><nav><button class="nav-menu" id="nav-menu"><img class="nav-menu__img" src="/button-nav-mobile.c7939760.svg"></button></nav></header><button class="nav-close" id="nav-close"><img class="nav-close__img" src="/close.b20a7233.svg"></button><div class="landing landing__background"><div class="container landing__grid"><div class="landing__logo"><img class="landing__logo-img" src="/tadam-logo.de273db4.svg"></div><div class="landing__titles"><h2 class="landing__subtitle">No rabbits, just Clojure</h2><h1 class="landing__title">Tadam Web Framework</h1><a class="landing__start" href="#main">Start</a></div></div></div><div class="main__grid"><aside class="aside"><div class="aside__content"><img class="aside__logo" src="/tadam-logo.de273db4.svg"><nav class="aside__nav"><h2 class="aside__title aside__title--first">Basics</h2><ul class="aside__ul"><li><a class="aside__link" href="#installation">Installation</a></li><li><a class="aside__link" href="#directory">Directory Structure</a></li><li><a class="aside__link" href="#configuration">Configuration</a></li><li><a class="aside__link" href="#routing">Routing</a></li><li><a class="aside__link" href="#views">Views</a></li><li><a class="aside__link" href="#templates">Templates</a></li><li><a class="aside__link" href="#requests">Requests</a></li><li><a class="aside__link" href="#responses">Responses</a></li></ul><h2 class="aside__title">Advances</h2><ul class="aside__ul"><li><a class="aside__link" href="#email">Email</a></li><li><a class="aside__link aside__link--soon" href="#forms">Forms</a></li><li><a class="aside__link aside__link--soon" href="#sessions">Sessions</a></li><li><a class="aside__link aside__link--soon" href="#database">Database</a></li></ul><h2 class="aside__title">Deployment</h2><ul class="aside__ul"><li><a class="aside__link" href="#compile">Compile</a></li><li><a class="aside__link" href="#service">Service</a></li><li><a class="aside__link" href="#reverse">Reverse proxy</a></li></ul><h2 class="aside__title">Community</h2><ul class="aside__ul"><li><a class="aside__link" href="#success">Success stories</a></li><li><a class="aside__link" href="#thanks">Thanks</a></li></ul></nav></div></aside><main class="main" id="main"><div class="container"><div class="github"><a href="https://github.com/tadam-framework/tadam-core"><img class="github__icon" src="/github.e03f6e2d.svg" alt="Github"></a><span class="github__button"><a class="github-button" href="https://github.com/tadam-framework/tadam-core" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star tadam Framework on GitHub">Star</a></span></div><section class="introduction"><p>Tadam is a minimalistic framework for creating dynamic <strong>function-oriented websites</strong>. All the <strong>potential of Clojure simplified</strong> for fast development. It could be in someway <strong>equivalent to Flask</strong>, but a little more modern.</p><p>The rest of the magic will come from you.</p><div class="introduction__grid"><div class="introduction__content-image"><img class="introduction__image" src="/list.501e3bf5.svg" alt="Order list"></div><div class="introduction__text-1"><h2 class="introduction__title">urls.clj</h2><pre><code class="clojure">(defroutes public
+  (GET "/" [] view-public/index))</code></pre></div><div class="introduction__text-2 introduction__text--tab"><h2 class="introduction__title">views.clj</h2><pre><code class="clojure">(defn index
+  [req]
+  (render-HTML req "welcome.html"
+    { :name "Tadam"
+      :time (System/currentTimeMillis) }))</code></pre></div><div class="introduction__text-3"><h2 class="introduction__title">welcome.html</h2><pre><code class="django">&lt;h1&gt;Welcome to {{ name }} Framework&lt;/h1&gt;
+&lt;p&gt;No bugs since: {{ time }}&lt;/p&gt;</code></pre></div><div class="introduction__text-4 introduction__text--tab"><h2 class="introduction__title">🎉 TADAM!!! 🎉</h2><pre><code class="django">&lt;h1&gt;Welcome to Tadam Framework&lt;/h1&gt;
+&lt;p&gt;No bugs since: 1590773922089&lt;/p&gt;</code></pre></div></div></section><section><div class="mark" id="installation"></div><h1 class="main__title">Installation</h1><h2>1. Make sure you have <strong>Openjdk</strong> or <strong>Oracle-jdk</strong> installed.</h2>
+<h3>Debian/Ubuntu</h3>
+<pre><code class="language-shell">sudo apt install default-jdk
+</code></pre>
+<h3>Mac OS</h3>
+<pre><code class="language-shell">brew install openjdk
+</code></pre>
+<h2>2. Install <strong>Clojure</strong> and <strong>Leiningen</strong>.</h2>
+<h3>Debian/Ubuntu</h3>
+<pre><code class="language-shell">sudo apt install clojure leiningen
+</code></pre>
+<h3>Mac OS</h3>
+<pre><code class="language-shell">brew install clojure/tools/clojure leiningen
+</code></pre>
+<h2>3. Create a 🎩Tadam🎩 project.</h2>
+<pre><code class="language-shell">lein new tadam-lite myproject
+</code></pre>
+<h2>4. Run.</h2>
+<pre><code class="language-shell">cd myproject
+lein run
+</code></pre>
+<p>Great 🎉. You already have your 🔥 own web server 🔥.</p>
+<p>Now open your browser.</p>
+<pre><code class="language-shell">localhost:7404
+</code></pre>
+</section><section><div class="mark" id="directory"></div><h1 class="main__title">Directory Structure</h1><p>When you generate your project you will find the following structure.</p>
+<pre><code class="language-shell">config.yaml
+project.clj
+README.md
+resources/
+    public/
+        css/
+            main.css
+        img/
+            tadam.svg
+        js/
+            main.js
+    templates/
+        layouts/
+            base.html
+        public/
+            404.html
+            welcome.html
+src/
+    myproject/
+        views/
+            public.clj
+        config.clj
+        core.clj
+        urls.clj
+</code></pre>
+<p>Let's see the description of the relevant sections.</p>
+<h2>Root</h2>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>config.yaml</td>
+<td>File</td>
+<td>The configuration of your application, to which you can add all the <strong>variables you need</strong>. By default you will find <strong>domain</strong>, <strong>debug</strong> and <strong>port</strong>. You can see more information in <a href="#configuration">Configuration</a></td>
+</tr>
+<tr>
+<td>project.clj</td>
+<td>File</td>
+<td>Clojure configuration. Add as many libraries as you need.</td>
+</tr>
+<tr>
+<td>README.md</td>
+<td>File</td>
+<td>Example of README.md file for your project.</td>
+</tr>
+</tbody>
+</table>
+<h2>Resources folder</h2>
+<p>Everything related to the template system or static files (javascript, images, styles...).</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public</td>
+<td>Folder</td>
+<td>Static material.</td>
+</tr>
+<tr>
+<td>templates</td>
+<td>Folder</td>
+<td>Templates HTML.</td>
+</tr>
+<tr>
+<td>templates/layouts/base.html</td>
+<td>File</td>
+<td>Example of a template that will contain all the structure that will not change between pages, such as the header or footer.</td>
+</tr>
+<tr>
+<td>templates/public/welcome.html</td>
+<td>File</td>
+<td>Sample HTML page.</td>
+</tr>
+</tbody>
+</table>
+<h2>src folder</h2>
+<p>Source code in Clojure, the heart of the beast. System of routes, views, business logic...</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>views/</td>
+<td>Folder</td>
+<td>The views are invoked by the urls.clj . When a route is visited, a function within the appropriate view is called.</td>
+</tr>
+<tr>
+<td>views/public.clj</td>
+<td>File</td>
+<td>Example of a public view. In the future it should grow with other private, management, identification or APIs.</td>
+</tr>
+<tr>
+<td>config.clj</td>
+<td>File</td>
+<td>Place to store the configuration. You can configure as many variables as you need or add them as root in config.yaml</td>
+</tr>
+<tr>
+<td>core.clj</td>
+<td>File</td>
+<td>First file to be executed in your application. It must have the minimum to start.</td>
+</tr>
+<tr>
+<td>urls.clj</td>
+<td>File</td>
+<td>Routes of your website.</td>
+</tr>
+</tbody>
+</table>
+</section><section><div class="mark" id="configuration"></div><h1 class="main__title">Configuration</h1><p>By default you will have a <strong>config.yaml</strong> file like the one below.</p>
+<pre><code class="language-yaml">domain: &quot;http://localhost&quot;
+debug: true
+port: 7404
+</code></pre>
+<ul>
+<li><strong>domain</strong>: Indicates which will be the domain of your application (http://example.com). In case you work locally or have a reverse proxy, it will not be necessary to modify it.</li>
+<li><strong>debug</strong>: If true, it enables an automatic code refresh and ignores CORS. Otherwise it assumes you are working in production and will block the CORS in accordance to the domain.</li>
+<li><strong>port</strong>: Port you will use.</li>
+</ul>
+<p>Feel free to add as many variables as you need.</p>
+<p>For example let's <strong>create the wizard variable and use it</strong>.</p>
+<h3>config.yaml</h3>
+<pre><code class="language-yaml">domain: &quot;http://localhost&quot;
+debug: true
+port: 7404
+wizard: Merlin
+</code></pre>
+<h3>core.clj</h3>
+<pre><code class="language-clojure">(ns myproject.core
+    (:require
+     [myproject.config :refer [config]]))
+     
+
+(defn -main [&amp; args]
+  ;; Main
+  (prn (config :wizard)))
+
+&quot; Merlin
+</code></pre>
+</section><section><div class="mark" id="routing"></div><h1 class="main__title">Routing</h1><h2>Simple route</h2>
+<p>Inside <strong>urls.clj</strong> you can find an example where 2 routes are declared and linked to their respective views.</p>
+<p>If you want to <strong>add new routes</strong> you should <strong>follow 4 steps</strong>.</p>
+<ol>
+<li>Import the View.</li>
+<li>Use or create a group of Routes.</li>
+<li>Define the routes with View.</li>
+<li>Add your group to the set of all routes (Optional, only if it does not exist). You should always leave at the end <strong>resources-routes</strong>, are used for static content.</li>
+</ol>
+<pre><code class="language-clojure">(ns myproject.urls
+  (:require
+   [compojure.core :refer [defroutes GET]]
+   [compojure.route :as route]
+   ;; 1) Import View
+   [myproject.views.public :as view-public]))
+
+;; 2) Set group routes, in the example it is called &quot;public&quot;
+(defroutes public
+  ;; 3) Add routes
+  (GET &quot;/&quot; [] view-public/index)
+  (GET &quot;/FAQ&quot; [] view-public/faq)
+  (GET &quot;/about&quot; [] view-public/about))
+
+
+(defroutes resources-routes
+  ;; Resources (statics)
+  (route/resources &quot;/&quot;)
+  (route/not-found view-public/page-404))
+
+;; 4) Add your group of routes to all of them.
+(def all-routes
+  ;; Wrap routers. &quot;resources-routes&quot; should always be the last.
+  (compojure.core/routes public resources-routes))
+</code></pre>
+<h2>Parameters</h2>
+<p>In the following example we have <strong>routes that require different parameters</strong>.</p>
+<pre><code class="language-clojure">(defroutes public
+  (GET &quot;/&quot; [] view-public/index)
+  (GET &quot;/blog/:id&quot; [id] view-public/blog)
+  (GET &quot;/auth/activate-account/:token/:email/&quot; [token email] view-auth/activate-account))
+</code></pre>
+<p>In the <strong>View</strong>, the variables are collected as follows.</p>
+<pre><code class="language-clojure">(defn activate-account
+  &quot;Activate account&quot;
+  [req]
+  (let [token (-&gt; req :params :token)
+        email (-&gt; req :params :email)]
+    ;; Your magic code
+    (redirect req &quot;/auth/login/&quot;)))
+</code></pre>
+<h2>Avoiding repetition</h2>
+<p>At some point you will need to have a prefix for the routes.</p>
+<pre><code class="language-clojure">(defroutes user-routes
+    (GET &quot;/user/auth/login&quot; [] ...)
+    (GET &quot;/user/auth/signup&quot; [] ...)
+    (GET &quot;/user/auth/recovery-password&quot; [] ...))
+</code></pre>
+<p>To avoid this you can use a context.</p>
+<pre><code class="language-clojure">(defroutes user-routes
+  (context &quot;/user/auth&quot; []
+    (GET &quot;/login&quot; [] ...)
+    (GET &quot;/signup&quot; [] ...)
+    (GET &quot;/recovery-password&quot; [] ...)))
+</code></pre>
+</section><section><div class="mark" id="views"></div><h1 class="main__title">Views</h1><p>The views are used to include the logic of each route.</p>
+<p>In this example, an HTML template is rendered.</p>
+<pre><code class="language-clojure">(defn index
+  ;; View HTML
+  [req]
+    (render-HTML req &quot;public/welcome.html&quot; {}))
+</code></pre>
+<p>In the following example, a simple JSON is printed.</p>
+<pre><code class="language-clojure">(defn api
+  ;; View JSON
+  [req]
+    (render-JSON req {:result true}))
+
+;; { &quot;result&quot;: true }
+</code></pre>
+<p>You can see more in <a href="#responses">Responses</a>.</p>
+</section><section><div class="mark" id="templates"></div><h1 class="main__title">Templates</h1><p>HTML templates can be displayed in <strong>raw</strong>, rendered <strong>using parameters</strong> or different <strong>layouts</strong>. As well as it is possible to return <strong>Markdown</strong> or <strong>JSON</strong>.</p>
+<p>All templates should be located in <strong>/resources/templates/</strong>.</p>
+<p>The syntax is inspired by Django. It is generated by <a href="https://github.com/yogthos/Selmer">Selmer</a>, you can consult its documentation for more advanced topics such as loops or filters.</p>
+<h2>HTML</h2>
+<p>Suppose you have an HTML template in the <strong>/resources/templates/theatre.html</strong> path.</p>
+<pre><code class="language-django">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;body&gt;
+        Olympia Theatre
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Then you just need to use the function <strong>render-HTML</strong>.</p>
+<pre><code class="language-clojure">(render-HTML [request] [path] [args]))
+</code></pre>
+<p>Example</p>
+<pre><code class="language-clojure">;;;; View web
+(ns myproject.views.my-view
+  (:require
+    [tadam.templates :refer [render-HTML]]))
+
+(defn index
+  ;; View HTML
+  [req]
+  (render-HTML req &quot;theatre.html&quot; {}))
+</code></pre>
+<h2>HTML with params</h2>
+<p>Suppose you have an HTML template in the <strong>/resources/templates/theatre.html</strong> path.</p>
+<pre><code class="language-django">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;body&gt;
+         &lt;p&gt;The {{ name }} Theatre was founded in {{ opened }} and currently has {{ surface }} seats.&lt;/p&gt; 
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>The View would be similar to the previous example but indicating its parameters.</p>
+<pre><code class="language-clojure">(ns myproject.views.my-view
+  (:require
+    [tadam.templates :refer [render-HTML]]))
+
+(defn index
+    ;; View HTML
+    [req]
+    (render-HTML req &quot;theatre.html&quot; {
+    :name &quot;Olympia&quot;
+    :opened 1915
+    :surface 500
+    }))
+</code></pre>
+<p>As a result the request is returned.</p>
+<pre><code class="language-django">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;body&gt;
+         &lt;p&gt;The Olympia Theatre was founded in 1915 and currently has 500 seats.&lt;/p&gt; 
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2>HTML in layout</h2>
+<p>In case you need to <strong>repeat the same HTML</strong> structure, then it is possible to <strong>extend a template</strong> or to define which part will change at each page HTML in layout.</p>
+<p>Let's create a template in <strong>/resources/templates/layouts/base.html</strong> that will our reference to generate new ones. It will contain all the recurrent parts, such as header, footer, navs, etc. Then we define where should be added <strong>block</strong>s that will be different at each page.</p>
+<pre><code class="language-django">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.css&quot;&gt;
+    &lt;script src=&quot;/js/main.js&quot;&gt; &lt;/script&gt;
+    &lt;title&gt;{% block title %}{% endblock %} | Olympia Theatre&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Welcome&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;/programme&quot;&gt;Programme&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+        {% block content %}{% endblock %}
+    &lt;/main&gt;
+    &lt;footer&gt;
+        More information in our newsletter
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Now it's time to define the page that will extend <strong>base.html</strong> with new template in <strong>/resources/templates/public/welcome.html</strong>.</p>
+<pre><code class="language-django">{% extends &quot;layouts/base.html&quot; %}
+
+{% block title %}
+Welcome
+{% endblock %}
+
+{% block content %}
+&lt;h1 class=&quot;title-welcome&quot;&gt;Welcome to Olympia Theatre&lt;/h1&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Conclusum est enim contra Cyrenaicos satis acute, nihil ad Epicurum. Qui bonum omne in virtute ponit, is potest dicere perfici beatam vitam perfectione virtutis; Ecce aliud simile dissimile. &lt;/p&gt;
+{% endblock %}
+</code></pre>
+<p>The result is:</p>
+<pre><code class="language-django">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.css&quot;&gt;
+    &lt;script src=&quot;/js/main.js&quot;&gt; &lt;/script&gt;
+    &lt;title&gt;Welcome | Olympia Theatre&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href=&quot;/&quot;&gt;Welcome&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;/programme&quot;&gt;Programme&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+      &lt;h1 class=&quot;title-welcome&quot;&gt;Welcome to Olympia Theatre&lt;/h1&gt;
+      &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Conclusum est enim contra Cyrenaicos satis acute, nihil ad Epicurum. Qui bonum omne in virtute ponit, is potest dicere perfici beatam vitam perfectione virtutis; Ecce aliud simile dissimile. &lt;/p&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;
+        More information in our newsletter
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2>Markdown</h2>
+<p>It is possible to use Markdown files that will be transformed into HTML.</p>
+<pre><code class="language-clojure">(ns myproject.views.my-view
+  (:require
+    [tadam.templates :refer [render-markdown]]))
+
+(render-markdown req &quot;theatre.md&quot; {})
+</code></pre>
+<h2>JSON</h2>
+<p>There is a function available to convert collections to JSON.</p>
+<pre><code class="language-clojure">(render-JSON [request] [collection]))
+</code></pre>
+<p>Example</p>
+<pre><code class="language-clojure">(ns myproject.views.my-view
+  (:require
+    [tadam.templates :refer [render-JSON]]))
+
+
+(render-JSON req {:name &quot;Olympia&quot; :surface 500 :opened 1915})
+</code></pre>
+<p>It returns a nice JSON with the right header.</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;Olympia&quot;,
+  &quot;surface&quot;: 500,
+  &quot;opened&quot;: 1915
+}
+</code></pre>
+<h2>Render templates to string</h2>
+<p>In certain circumstances it is necessary to <strong>render HTML templates to obtain a string</strong>, for example when we want to prepare content to send an <a href="#email">email</a> or because it is going to be saved in a new file.</p>
+<pre><code class="language-clojure">(render-template [path template] [collection])
+</code></pre>
+<p>Example</p>
+<pre><code class="language-clojure">(ns myproject.views.my-view
+  (:require
+   [tadam.templates :refer [render-template]]))
+
+(render-template &quot;public/template.html&quot; {:name &quot;Olympia&quot; :surface 500 :opened 1915})
+</code></pre>
+</section><section><div class="mark" id="requests"></div><h1 class="main__title">Requests</h1><h2>Params</h2>
+<h3>GET</h3>
+<p>From the following URL we can capture the variable <strong>query</strong>.</p>
+<pre><code class="language-shell">curl https://mydomain.com/?query=Tadam
+</code></pre>
+<pre><code class="language-clojure">(-&gt; req :params :query)
+;; Tadam
+</code></pre>
+<h3>POST</h3>
+<p>Capturing a parameter by POST is like GET.</p>
+<pre><code class="language-shell">curl --data &quot;query=Tadam&quot; https://mydomain.com/
+</code></pre>
+<pre><code class="language-clojure">(-&gt; req :params :query)
+;; Tadam
+</code></pre>
+<p>If you need to know if you are receiving the POST method you can use:</p>
+<pre><code class="language-clojure">(ns myproject.views.myview
+  (:require [tadam.utils :refer [is-post]]))
+
+(is-post req)
+;; true or false
+</code></pre>
+<h3>JSON</h3>
+<p>A small utility can be used to obtain the parameters of a JSON.</p>
+<pre><code class="language-shell">curl --header &quot;Content-Type: application/json&quot; \
+  --request POST \
+  --data '{&quot;query&quot;: &quot;Tadam&quot;,&quot;page&quot;: 1}' \
+  https://mydomain.com/
+</code></pre>
+<pre><code class="language-clojure">(ns myproject.views.myview
+  (:require [tadam.utils :refer [get-JSON]]))
+
+(get-JSON req)
+;; {:query &quot;Tadam&quot; :page 1} 
+</code></pre>
+</section><section><div class="mark" id="responses"></div><h1 class="main__title">Responses</h1><p>When used in a View the <strong>(render-HTML)</strong> function, or any other <a href="#templates">template</a> element, it is not necessary to <strong>specify the request</strong>. In case you need to customize it you have a helper.</p>
+<pre><code class="language-clojure">(response [req] [body] [status] [content-type]))
+</code></pre>
+<p>At least the <strong>request</strong> and the <strong>body</strong> must be indicated.</p>
+<pre><code class="language-clojure">(ns myproject.views.my-view
+  (:require
+    [tadam.responses :refer [response]]))
+
+(defn index
+  ;; View HTML
+  [req]
+  (response req &quot;Hi Tadam&quot;))
+</code></pre>
+<p>Return to browser.</p>
+<pre><code class="language-shell">HTTP/1.1 200 OK
+Content-Type: text/html;charset=utf-8
+
+Hi Tadam
+</code></pre>
+<p>Although it can be customized with <strong>status</strong> and <strong>content-type</strong>.</p>
+<pre><code class="language-clojure">(ns myproject.views.my-view
+  (:require
+    [tadam.responses :refer [response]]))
+
+(defn index
+  ;; View HTML
+  [req]
+  (response req &quot;&lt;?xml version=&quot;1.0&quot;?&gt;
+    &lt;Name&gt;
+        Tadam
+    &lt;/Name&gt;&quot; 201 &quot;text/xml;charset=utf-8&quot;))
+</code></pre>
+<p>Return to browser.</p>
+<pre><code class="language-shell">HTTP/1.1 201 OK
+Content-Type: text/xml;charset=utf-8
+
+&lt;?xml version=&quot;1.0&quot;?&gt; &lt;Name&gt; Tadam &lt;/Name&gt;
+</code></pre>
+<h2>Redirect</h2>
+<p>To make a redirect in your View you have within <strong>responses</strong> the utility <strong>redirect</strong>.</p>
+<pre><code class="language-clojure">(redirect [req] [url] [status]))
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-clojure">(ns myproject.views.my-view
+  (:require
+    [tadam.responses :refer [redirect]]))
+
+(defn index
+  ;; View HTML
+  [req]
+  (redirect req &quot;/contact/&quot;))
+</code></pre>
+<p>If he's not told otherwise, he'll use <strong>status 303</strong> (See Other).</p>
+<p>If you <strong>need another</strong> one, such as 301, you can customize the <strong>argument status</strong>.</p>
+<pre><code class="language-clojure">(ns myproject.views.my-view
+  (:require
+    [tadam.responses :refer [redirect]]))
+
+(defn index
+  ;; View HTML
+  [req]
+  (redirect req &quot;/blog/tadam-is-magic/&quot; 301))
+</code></pre>
+<p>Also <strong>redirect-permanent</strong> in case you want to use the <strong>308 state directly</strong>, although it can also be done like the previous examples.</p>
+<pre><code class="language-clojure">(redirect-permanent [req] [url]))
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-clojure">(ns myproject.views.my-view
+  (:require
+    [tadam.responses :refer [redirect-permanent]]))
+
+(defn index
+  ;; View HTML
+  [req]
+  (redirect-permanent req &quot;/blog/tadam-is-magic/&quot;))
+</code></pre>
+</section><section><div class="mark" id="email"></div><h1 class="main__title">Email</h1><p>If you want to send emails before you must update the configuration variables in <strong>config.yaml</strong>.</p>
+<p>Add the following.</p>
+<pre><code class="language-yaml">smtp-from: &quot;no-reply@domain.com&quot;
+smtp-host: &quot;smtp.domain.com&quot;
+smtp-user: &quot;user&quot;
+smtp-password: &quot;password&quot;
+smtp-port: 587
+smtp-tls: true
+</code></pre>
+<p>Then all you have to do is use <strong>send</strong>.</p>
+<pre><code class="language-clojure">(send [config] [recipient email] [subject] [message HTML] [message plain])
+</code></pre>
+<p>Example:</p>
+<pre><code class="language-clojure">(ns myproject.views.my-view
+  (:require
+   [myproject.config :refer [config]
+   [tadam.responses :refer [response]]
+   [tadam.email :refer [send]]))
+
+(defn send-message
+  ;; View Send email
+  [req]
+    ;; Send email
+    (send config &quot;client@email.com&quot; &quot;My subject&quot; &quot;&lt;h1&gt;Title&lt;/h1&gt;&lt;p&gt;Content&lt;/p&gt;&quot; &quot;Title\nContent&quot;)
+
+    ;; Response OK
+    (response req &quot;Send!!!!&quot;))
+</code></pre>
+<p>You can do this easily by customizing the HTML or plain text with <strong>render-template</strong>.</p>
+<pre><code class="language-clojure">(ns myproject.views.my-view
+  (:require
+   [myproject.config :refer [config]
+   [tadam.responses :refer [response]]
+   [tadam.templates :refer [render-template]]
+   [tadam.email :refer [send]]))
+
+(defn send-message
+  ;; View Send email
+  [req]
+    (let [params {:name &quot;Houdini&quot;
+                  :born 1874}]
+    ;; Send email
+    (send config 
+         &quot;client@email.com&quot; 
+         &quot;My subject&quot; 
+         (render-template &quot;emails/contact.html&quot; params)
+         (render-template &quot;emails/contact.txt&quot; params))
+
+    ;; Response OK
+    (response req &quot;Send!!!!&quot;)))
+</code></pre>
+</section><section><div class="mark" id="compile"></div><h1 class="main__title">Compile</h1><p>Run the following command to build a <strong>jar</strong> file.</p>
+<pre><code class="language-shell">lein uberjar
+</code></pre>
+<p>After this two files should be created in <strong>target/</strong>. We will use the standalone version: <strong>{project name}-standalone.jar</strong>.</p>
+</section><section><div class="mark" id="service"></div><h1 class="main__title">Service</h1><h3>Systemctl</h3>
+<p>To create a service in Linux is done like any application in Java. Below you can see an example.</p>
+<p>Create a file in the following path: <strong>/etc/systemd/system/tadam-project.service</strong>.</p>
+<p>Add the content.</p>
+<pre><code class="language-shell">[Unit]
+Description=Tadam-project
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+WorkingDirectory=/folder/jar/
+ExecStart=java -jar tadam-project.jar
+
+[Install]
+WantedBy=multi-user.target 
+</code></pre>
+<p>Finally enable and start the service.</p>
+<pre><code class="language-shell">sudo systemctl enable tadam-project
+sudo systemctl start tadam-project
+</code></pre>
+</section><section><div class="mark" id="reverse"></div><h1 class="main__title">Reverse Proxy</h1><h3>Nginx</h3>
+<p>With Nginx it's pretty quick and easy. You can use it as a reverse proxy, since Glosa contains its own web server (Jetty). You can see an example of configuration that can be useful.</p>
+<pre><code class="language-shell">server {
+
+        server_name tadam.domain.com;
+
+        access_log /var/log/myproject_access.log;
+        error_log /var/log/myproject_error.log;
+
+        location / {
+            proxy_pass http://localhost:7404/;
+            proxy_set_header Host $http_host;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_redirect  off;
+        }
+}
+</code></pre>
+</section><section class="success__stories"><div class="mark" id="success"></div><h1 class="main__title">Success stories</h1><p><a href="https://github.com/glosa/glosa-server"><img src="https://cdn.jsdelivr.net/gh/glosa/glosa-server/media/logo.png" alt="Glosa"></a></p>
+<p>Comments for static sites. Clone of Disqus, but faster, Opensource and sexy.</p>
+<p><a href="https://is-wordpress.andros.dev/"><img src="https://is-wordpress.andros.dev/img/screenshot.png" alt="Is it wordpress"></a></p>
+<p>Free online service that tells you if a site is made with WordPress using proprietary techniques.</p>
+<h2>Do you want to know if a site is made with Tadam?</h2>
+<pre><code class="language-shell">curl -Is localhost:7404 | grep 'X-Powered-By:' 
+</code></pre>
+<p>👇</p>
+<pre><code class="language-shell">X-Powered-By: Clojure/Tadam
+</code></pre>
+</section><section class="success__stories"><div class="mark" id="thanks"></div><h1 class="main__title">Thanks</h1><p><a href="https://github.com/GetRawFish">Valentina Rubane</a>: Revision of texts in English.</p>
+</section><footer class="footer"><p>2020 Tadam Framework | Author: <a href="https://programadorwebvalencia.com/" target="_blank">Andros Fenollosa</a></p></footer></div></main></div><script async defer src="https://buttons.github.io/buttons.js"></script><script async src="https://www.googletagmanager.com/gtag/js?id=UA-46470654-7"></script><script>function a(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],a("js",new Date),a("config","UA-46470654-7");</script><script defer src="/main.fb89703e.js"></script></body></html>
