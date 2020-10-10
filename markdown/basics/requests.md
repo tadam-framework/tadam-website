@@ -55,3 +55,15 @@ curl --header "Content-Type: application/json" \
 ;; {:query "Tadam" :page 1} 
 ```
 
+### HEADERS
+
+If you need to capture the value of a header.
+
+``` clojure
+(ns myproject.views.myview
+  (:require [tadam.utils :refer [get-header]]))
+
+(get-header req "Content-Type")
+;; "application/json"
+```
+
