@@ -462,6 +462,14 @@ Welcome
 (get-JSON req)
 ;; {:query &quot;Tadam&quot; :page 1} 
 </code></pre>
+<h3>HEADERS</h3>
+<p>If you need to capture the value of a header.</p>
+<pre><code class="language-clojure">(ns myproject.views.myview
+  (:require [tadam.utils :refer [get-header]]))
+
+(get-header req &quot;Content-Type&quot;)
+;; &quot;application/json&quot;
+</code></pre>
 </section><section><div class="mark" id="responses"></div><h1 class="main__title">Responses</h1><p>When used in a View the <strong>(render-HTML)</strong> function, or any other <a href="#templates">template</a> element, it is not necessary to <strong>specify the request</strong>. In case you need to customize it you have a helper.</p>
 <pre><code class="language-clojure">(response [req] [body] [status] [content-type]))
 </code></pre>
