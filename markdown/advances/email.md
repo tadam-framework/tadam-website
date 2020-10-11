@@ -11,11 +11,11 @@ smtp-port: 587
 smtp-tls: true
 ```
 
-Then all you have to do is use **send**.
+Then all you have to do is use **send-email**.
 
 
 ``` clojure
-(send [config] [recipient email] [subject] [message HTML] [message plain])
+(send-email [config] [recipient email] [subject] [message HTML] [message plain])
 ```
 
 Example:
@@ -26,13 +26,13 @@ Example:
   (:require
    [myproject.config :refer [config]
    [tadam.responses :refer [response]]
-   [tadam.email :refer [send]]))
+   [tadam.email :refer [send-email]]))
 
 (defn send-message
   ;; View Send email
   [req]
     ;; Send email
-    (send config "client@email.com" "My subject" "<h1>Title</h1><p>Content</p>" "Title\nContent")
+    (send-email config "client@email.com" "My subject" "<h1>Title</h1><p>Content</p>" "Title\nContent")
 
     ;; Response OK
     (response req "Send!!!!"))
@@ -46,7 +46,7 @@ You can do this easily by customizing the HTML or plain text with **render-templ
    [myproject.config :refer [config]
    [tadam.responses :refer [response]]
    [tadam.templates :refer [render-template]]
-   [tadam.email :refer [send]]))
+   [tadam.email :refer [send-email]]))
 
 (defn send-message
   ;; View Send email
@@ -54,7 +54,7 @@ You can do this easily by customizing the HTML or plain text with **render-templ
     (let [params {:name "Houdini"
                   :born 1874}]
     ;; Send email
-    (send config 
+    (send-email config 
          "client@email.com" 
          "My subject" 
          (render-template "emails/contact.html" params)
