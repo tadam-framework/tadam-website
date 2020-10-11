@@ -555,21 +555,21 @@ smtp-password: &quot;password&quot;
 smtp-port: 587
 smtp-tls: true
 </code></pre>
-<p>Then all you have to do is use <strong>send</strong>.</p>
-<pre><code class="language-clojure">(send [config] [recipient email] [subject] [message HTML] [message plain])
+<p>Then all you have to do is use <strong>send-email</strong>.</p>
+<pre><code class="language-clojure">(send-email [config] [recipient email] [subject] [message HTML] [message plain])
 </code></pre>
 <p>Example:</p>
 <pre><code class="language-clojure">(ns myproject.views.my-view
   (:require
    [myproject.config :refer [config]
    [tadam.responses :refer [response]]
-   [tadam.email :refer [send]]))
+   [tadam.email :refer [send-email]]))
 
 (defn send-message
   ;; View Send email
   [req]
     ;; Send email
-    (send config &quot;client@email.com&quot; &quot;My subject&quot; &quot;&lt;h1&gt;Title&lt;/h1&gt;&lt;p&gt;Content&lt;/p&gt;&quot; &quot;Title\nContent&quot;)
+    (send-email config &quot;client@email.com&quot; &quot;My subject&quot; &quot;&lt;h1&gt;Title&lt;/h1&gt;&lt;p&gt;Content&lt;/p&gt;&quot; &quot;Title\nContent&quot;)
 
     ;; Response OK
     (response req &quot;Send!!!!&quot;))
@@ -580,7 +580,7 @@ smtp-tls: true
    [myproject.config :refer [config]
    [tadam.responses :refer [response]]
    [tadam.templates :refer [render-template]]
-   [tadam.email :refer [send]]))
+   [tadam.email :refer [send-email]]))
 
 (defn send-message
   ;; View Send email
@@ -588,7 +588,7 @@ smtp-tls: true
     (let [params {:name &quot;Houdini&quot;
                   :born 1874}]
     ;; Send email
-    (send config 
+    (send-email config 
          &quot;client@email.com&quot; 
          &quot;My subject&quot; 
          (render-template &quot;emails/contact.html&quot; params)
