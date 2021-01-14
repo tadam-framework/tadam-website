@@ -68,8 +68,6 @@ html(lang='en')
                 a.aside__link.aside__link--soon(href="#forms") Forms
               li
                 a.aside__link.aside__link--soon(href="#sessions") Sessions
-              li
-                a.aside__link.aside__link--soon(href="#database") Database
             h2.aside__title Deployment
             ul.aside__ul
               li
@@ -80,6 +78,8 @@ html(lang='en')
                 a.aside__link(href="#reverse") Reverse proxy
             h2.aside__title Community
             ul.aside__ul
+              li
+                a.aside__link(href="#donation") Donation
               li
                 a.aside__link(href="#success") Success stories
               li
@@ -187,6 +187,11 @@ html(lang='en')
             .mark#reverse
             h1.main__title Reverse Proxy
             include:markdown-it(html) markdown/deployment/reverse.md
+          //// Donation
+          section.donation
+            .mark#donation
+            h1.main__title Donation
+            include:markdown-it(html) markdown/community/donation.md
           //// Success stories
           section.success__stories
             .mark#success
