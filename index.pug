@@ -81,6 +81,8 @@ html(lang='en')
               li
                 a.aside__link(href="#donation") Donation
               li
+                a.aside__link(href="#talks") Talks
+              li
                 a.aside__link(href="#success") Success stories
               li
                 a.aside__link(href="#thanks") Thanks
@@ -192,6 +194,11 @@ html(lang='en')
             .mark#donation
             h1.main__title Donation
             include:markdown-it(html) markdown/community/donation.md
+          //// Interviews
+          section.talks
+            .mark#talks
+            h1.main__title Talks
+            include:markdown-it(html) markdown/community/talks.md
           //// Success stories
           section.success__stories
             .mark#success
