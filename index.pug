@@ -88,12 +88,16 @@ html(lang='en')
                 a.aside__link(href="#thanks") Thanks
       main.main#main(role="article")
         .container
-          .github
-            a(href='https://github.com/tadam-framework/tadam-core')
-              img.github__icon(src="img/github.svg" alt="Github")
-            // Place this tag where you want the button to render.
-            span.github__button
-              a.github-button(href='https://github.com/tadam-framework/tadam-core' data-icon='octicon-star' data-size='large' data-show-count='true' aria-label='Star tadam Framework on GitHub') Star
+          aside.secondary
+            .twitter
+              a.twitter__link(href='https://twitter.com/TadamWeb' target='_blank')
+                img.twitter__icon(src="img/twitter.svg" alt="Twitter")
+            .github
+              a.github__link(href='https://github.com/tadam-framework/tadam-core' target='_blank')
+                img.github__icon(src="img/github.svg" alt="Github")
+              // Place this tag where you want the button to render.
+              span.github__button
+                a.github-button(href='https://github.com/tadam-framework/tadam-core' data-icon='octicon-star' data-size='large' data-show-count='true' aria-label='Star tadam Framework on GitHub') Star
           // Introduction
           section.introduction
             p Tadam is a minimalistic framework for creating dynamic #[strong function-oriented websites]. All the #[strong potential of  Clojure simplified] for fast development. It could be in someway #[strong equivalent to Flask], but a little more modern.

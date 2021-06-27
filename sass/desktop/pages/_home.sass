@@ -98,9 +98,22 @@
         duration: 5s
         direction: alternate
 
+aside.secondary
+  display: flex
+  justify-content: flex-end
+  align-items: center
+  .twitter__link
+    display: block
+    width: 2rem
+    margin: 0 2rem
+    filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg)
+    &:hover
+      filter: invert(0.5) sepia(1) saturate(5) hue-rotate(155deg)
+
 section.donation
-    .content
-        text-align: center
+    .donation__button
+      margin-top: 4rem
+      text-align: center
 
 section.talks
     h2

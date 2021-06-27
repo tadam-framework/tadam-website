@@ -92,6 +92,19 @@
         duration: 5s
         direction: alternate
 
+aside.secondary
+  display: flex
+  justify-content: space-between
+  align-items: center
+  .twitter__link
+    display: block
+    width: 2rem
+    margin: 0 2rem
+    filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg)
+    &:hover
+      filter: invert(0.5) sepia(1) saturate(5) hue-rotate(155deg)
+
 section.donation
-    .content
+    .donation__button
+        margin-top: 2rem
         text-align: center
