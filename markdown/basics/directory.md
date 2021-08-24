@@ -33,7 +33,7 @@ Let's see the description of the relevant sections.
 
 | Name | Type | Description |
 | --- | --- | --- |
-| config.yaml | File | The configuration of your application, to which you can add all the **variables you need**. By default you will find **domain**, **debug** and **port**. You can see more information in [Configuration](#configuration) |
+| config.yaml | File | The configuration of your application, to which you can add all the **variables you need**. By default you will find **domain**, **debug** and **port**. You can see more information in [Configuration] (#configuration) |
 | project.clj | File | Clojure configuration. Add as many libraries as you need. |
 | README.md | File | Example of README.md file for your project. |
 
