@@ -1,4 +1,4 @@
-By default you will have a **config.yaml** file like the one below.
+By default there’ll be a **config.yaml** file like the one below.
 
 ``` yaml
 domain: "http://localhost"
@@ -6,13 +6,13 @@ debug: true
 port: 7404
 ```
 
-- **domain**: Indicates which will be the domain of your application (http://example.com). In case you work locally or have a reverse proxy, it will not be necessary to modify it.
-- **debug**: If true, it enables an automatic code refresh and ignores CORS. Otherwise it assumes you are working in production and will block the CORS in accordance to the domain.
-- **port**: Port you will use.
+- **domain**: Defines the domain of your application (http://example.com). If you’re running locally or have a reverse proxy, there’s no need to change it.
+- **debug**: If true, then automatic code refreshes are enabled and CORS is ignored. Otherwise, it is assumed that you are in a production environment and CORS is blocked based on the domain.
+- **port**: Port to use.
 
 Feel free to add as many variables as you need.
 
-For example let's **create the wizard variable and use it**.
+For example, let's **create a wizard variable and use it**.
 
 ### config.yaml
 
@@ -27,13 +27,11 @@ wizard: Merlin
 
 ``` clojure
 (ns myproject.core
-    (:require
-     [myproject.config :refer [config]]))
-     
+  (:require
+    [myproject.config :refer [config]]))
 
 (defn -main [& args]
   ;; Main
   (prn (config :wizard)))
-
 " Merlin
 ```
