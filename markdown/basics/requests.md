@@ -2,7 +2,7 @@
 
 ### GET
 
-From the following URL we can capture the variable **query**.
+From the following URL, we can capture the **query** variable.
 
 ``` shell
 curl https://mydomain.com/?query=Tadam
@@ -15,7 +15,7 @@ curl https://mydomain.com/?query=Tadam
 
 ### POST
 
-Capturing a parameter by POST is like GET.
+Capturing a parameter using POST is similar to GET.
 
 ``` shell
 curl --data "query=Tadam" https://mydomain.com/
@@ -26,7 +26,7 @@ curl --data "query=Tadam" https://mydomain.com/
 ;; Tadam
 ```
 
-If you need to know if you are receiving the POST method you can use:
+In case you need to know if you are receiving a POST method.
 
 ``` clojure
 (ns myproject.views.myview
@@ -38,7 +38,7 @@ If you need to know if you are receiving the POST method you can use:
 
 ### JSON
 
-A small utility can be used to obtain the parameters of a JSON.
+A small utility can be used to get JSON parameters.
 
 ``` shell
 curl --header "Content-Type: application/json" \
@@ -57,7 +57,7 @@ curl --header "Content-Type: application/json" \
 
 ### HEADERS
 
-If you need to capture the value of a header.
+In case you need to capture the value of a header.
 
 ``` clojure
 (ns myproject.views.myview
@@ -66,4 +66,3 @@ If you need to capture the value of a header.
 (get-header req "Content-Type")
 ;; "application/json"
 ```
-

@@ -39,7 +39,7 @@ cd myproject
 lein run
 ```
 
-Great 🎉. You already have your 🔥 own web server 🔥.
+Great 🎉! 🔥 Your own web server 🔥 is up and running!
 
 Now open your browser.
 
