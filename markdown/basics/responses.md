@@ -1,10 +1,10 @@
-When used in a View the **(render-HTML)** function, or any other [template](#templates) element, it is not necessary to **specify the request**. In case you need to customize it you have a helper.
+When using the **(render-HTML)** function or any other [template](#templates) element in a view, there is no need to **specify a request**. Provided you need to customize it, you have an assistant.
 
 ``` clojure
 (response [req] [body] [status] [content-type]))
 ```
 
-At least the **request** and the **body** must be indicated.
+At least, **request** and **body** must be specified.
 
 ``` clojure
 (ns myproject.views.my-view
@@ -17,7 +17,7 @@ At least the **request** and the **body** must be indicated.
   (response req "Hi Tadam"))
 ```
 
-Return to browser.
+Back to the browser.
 
 ``` shell
 HTTP/1.1 200 OK
@@ -25,7 +25,7 @@ Content-Type: text/html;charset=utf-8
 
 Hi Tadam
 ```
-
+>>>It can also be customized with **status** and **content-type **.
 Although it can be customized with **status** and **content-type**.
 
 ``` clojure
@@ -42,7 +42,7 @@ Although it can be customized with **status** and **content-type**.
     </Name>" 201 "text/xml;charset=utf-8"))
 ```
 
-Return to browser.
+Back to the browser.
 
 ``` shell
 HTTP/1.1 201 OK
@@ -53,7 +53,7 @@ Content-Type: text/xml;charset=utf-8
 
 ## Redirect
 
-To make a redirect in your View you have within **responses** the utility **redirect**.
+To make a redirect in your view, you have a **redirect** utility inside **responses**.
 
 ``` clojure
 (redirect [req] [url] [status]))
@@ -72,9 +72,9 @@ Example:
   (redirect req "/contact/"))
 ```
 
-If he's not told otherwise, he'll use **status 303** (See Other).
+Unless otherwise specified, **status 303** will be used (see "Other").
 
-If you **need another** one, such as 301, you can customize the **argument status**.
+If you **need a different status** like 301, you can customize the **argument status**.
 
 ``` clojure
 (ns myproject.views.my-view
@@ -87,7 +87,7 @@ If you **need another** one, such as 301, you can customize the **argument statu
   (redirect req "/blog/tadam-is-magic/" 301))
 ```
 
-Also **redirect-permanent** in case you want to use the **308 state directly**, although it can also be done like the previous examples.
+You can also use **redirect-permanent** if you want to get the **308 status directly**, although this can be done in the same way as in the previous examples.
 
 ``` clojure
 (redirect-permanent [req] [url]))
