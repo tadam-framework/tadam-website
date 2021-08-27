@@ -25,8 +25,8 @@ Content-Type: text/html;charset=utf-8
 
 Hi Tadam
 ```
->>>It can also be customized with **status** and **content-type **.
-Although it can be customized with **status** and **content-type**.
+
+Template can also be customized with **status** and **content-type**.
 
 ``` clojure
 (ns myproject.views.my-view
