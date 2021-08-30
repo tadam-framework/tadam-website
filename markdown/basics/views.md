@@ -1,6 +1,6 @@
-The views are used to include the logic of each route.
+Views are used to include the logic of each route.
 
-In this example, an HTML template is rendered.
+This example renderes an HTML template.
 
 ``` clojure
 (defn index
@@ -9,7 +9,7 @@ In this example, an HTML template is rendered.
     (render-HTML req "public/welcome.html" {}))
 ```
 
-In the following example, a simple JSON is printed.
+The following example prints simple JSON.
 
 ``` clojure
 (defn api
