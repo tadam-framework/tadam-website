@@ -6,8 +6,8 @@ If you want to **add new routes** you should **follow 4 steps**.
 
 1. Import the View.
 2. Use or create a group of Routes.
-3. Define the routes with View.
-4. Add your group to the set of all routes (Optional, only if it does not exist). You should always leave at the end **resources-routes**, are used for static content.
+3. Define the Routes using View.
+4. Add your group to the set of all Routes (optional, only if it doesn't exist). Always leave **route resources** used for static content at the end.
 
 
 ``` clojure
