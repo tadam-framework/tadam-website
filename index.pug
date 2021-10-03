@@ -200,7 +200,8 @@ html(lang='en')
           section.talks
             .mark#talks
             h1.main__title Talks
-            include:markdown-it(html) markdown/community/talks.md
+            div.talks__content
+              include:markdown-it(html) markdown/community/talks.md
           //// Success stories
           section.success__stories
             .mark#success

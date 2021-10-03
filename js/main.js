@@ -79,4 +79,18 @@ document.addEventListener('DOMContentLoaded', () => {
     marks.forEach((element) => {
         observer.observe(element.parentNode);
     });
+
+    // Show Talks
+    const talks = document.querySelector('.talks');
+
+    const observerTalks = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                document.querySelector('.talks__content').style.display = "block";
+            }
+        });
+    });
+
+    observerTalks.observe(talks);
+
 });
