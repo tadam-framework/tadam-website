@@ -1,6 +1,6 @@
-If you want to send emails before you must update the configuration variables in **config.yaml**.
+If you would like to send emails, then you first need to update the config variables in **config.yaml**.
 
-Add the following.
+Add the following:
 
 ``` yaml
 smtp-from: "no-reply@domain.com"
@@ -11,7 +11,7 @@ smtp-port: 587
 smtp-tls: true
 ```
 
-Then all you have to do is use **send-email**.
+Now all you have to do is use **send-email**.
 
 
 ``` clojure
@@ -35,10 +35,10 @@ Example:
     (send-email config "client@email.com" "My subject" "<h1>Title</h1><p>Content</p>" "Title\nContent")
 
     ;; Response OK
-    (response req "Send!!!!"))
+    (response req "Sent!!!!"))
 ```
 
-You can do this easily by customizing the HTML or plain text with **render-template**.
+You can make it even easier by customizing HTML or plain text with **render-template**.
 
 ``` clojure
 (ns myproject.views.my-view
@@ -61,5 +61,5 @@ You can do this easily by customizing the HTML or plain text with **render-templ
          (render-template "emails/contact.txt" params))
 
     ;; Response OK
-    (response req "Send!!!!")))
+    (response req "Sent!!!!")))
 ```
