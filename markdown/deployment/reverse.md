@@ -1,6 +1,6 @@
 ### Nginx
 
-With Nginx it's pretty quick and easy. You can use it as a reverse proxy, since Glosa contains its own web server (Jetty). You can see an example of configuration that can be useful.
+Deploying with Nginx is pretty quick and easy. You can use it as a reverse proxy. Below you can see an example configuration that you might find useful.
 
 ``` shell
 server {
