@@ -1,1 +1,1 @@
-[Valentina Rubane](https://github.com/GetRawFish): Revision of texts in English.
+[Valentina Rubane](https://github.com/GetRawFish): Editing of texts in English.
