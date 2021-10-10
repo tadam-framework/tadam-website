@@ -1,8 +1,8 @@
 [![Glosa](https://cdn.jsdelivr.net/gh/glosa/glosa-server/media/logo.png)](https://github.com/glosa/glosa-server)
 
-Comments for static sites. Clone of Disqus, but faster, Opensource and sexy.
+Comments for static sites. A clone of Disqus, but faster, Open Source and sexy.
 
-## Do you want to know if a site is made with Tadam?
+## Want to know if a site has been created on Tadam?
 
 ``` shell
 curl -Is localhost:7404 | grep 'X-Powered-By:' 
