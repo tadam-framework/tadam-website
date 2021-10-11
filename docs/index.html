@@ -307,13 +307,13 @@ Content-Type: text/xml;charset=utf-8
   ;; View HTML
   [req]
   (redirect-permanent req &quot;/blog/tadam-is-magic/&quot;))
-</code></pre> </section><section><div class="mark" id="email"></div><h1 class="main__title">Email</h1><p>If you want to send emails before you must update the configuration variables in <strong>config.yaml</strong>.</p> <p>Add the following.</p> <pre><code class="language-yaml">smtp-from: &quot;no-reply@domain.com&quot;
+</code></pre> </section><section><div class="mark" id="email"></div><h1 class="main__title">Email</h1><p>If you would like to send emails, then you first need to update the config variables in <strong>config.yaml</strong>.</p> <p>Add the following:</p> <pre><code class="language-yaml">smtp-from: &quot;no-reply@domain.com&quot;
 smtp-host: &quot;smtp.domain.com&quot;
 smtp-user: &quot;user&quot;
 smtp-password: &quot;password&quot;
 smtp-port: 587
 smtp-tls: true
-</code></pre> <p>Then all you have to do is use <strong>send-email</strong>.</p> <pre><code class="language-clojure">(send-email [config] [recipient email] [subject] [message HTML] [message plain])
+</code></pre> <p>Now all you have to do is use <strong>send-email</strong>.</p> <pre><code class="language-clojure">(send-email [config] [recipient email] [subject] [message HTML] [message plain])
 </code></pre> <p>Example:</p> <pre><code class="language-clojure">(ns myproject.views.my-view
   (:require
    [myproject.config :refer [config]
@@ -327,8 +327,8 @@ smtp-tls: true
     (send-email config &quot;client@email.com&quot; &quot;My subject&quot; &quot;&lt;h1&gt;Title&lt;/h1&gt;&lt;p&gt;Content&lt;/p&gt;&quot; &quot;Title\nContent&quot;)
 
     ;; Response OK
-    (response req &quot;Send!!!!&quot;))
-</code></pre> <p>You can do this easily by customizing the HTML or plain text with <strong>render-template</strong>.</p> <pre><code class="language-clojure">(ns myproject.views.my-view
+    (response req &quot;Sent!!!!&quot;))
+</code></pre> <p>You can make it even easier by customizing HTML or plain text with <strong>render-template</strong>.</p> <pre><code class="language-clojure">(ns myproject.views.my-view
   (:require
    [myproject.config :refer [config]
    [tadam.responses :refer [response]]
@@ -348,9 +348,9 @@ smtp-tls: true
          (render-template &quot;emails/contact.txt&quot; params))
 
     ;; Response OK
-    (response req &quot;Send!!!!&quot;)))
-</code></pre> </section><section><div class="mark" id="compile"></div><h1 class="main__title">Compile</h1><p>Run the following command to build a <strong>jar</strong> file.</p> <pre><code class="language-shell">lein uberjar
-</code></pre> <p>After this two files should be created in <strong>target/</strong>. We will use the standalone version: <strong>{project name}-standalone.jar</strong>.</p> </section><section><div class="mark" id="service"></div><h1 class="main__title">Service</h1><h3>Systemctl</h3> <p>To create a service in Linux is done like any application in Java. Below you can see an example.</p> <p>Create a file in the following path: <strong>/etc/systemd/system/tadam-project.service</strong>.</p> <p>Add the content.</p> <pre><code class="language-shell">[Unit]
+    (response req &quot;Sent!!!!&quot;)))
+</code></pre> </section><section><div class="mark" id="compile"></div><h1 class="main__title">Compile</h1><p>Run the following command to create a <strong>jar</strong> file.</p> <pre><code class="language-shell">lein uberjar
+</code></pre> <p>After executing the command, two files should be created in <strong>target /</strong>. We will use the standalone version: <strong>{project name}-standalone.jar</strong>.</p> </section><section><div class="mark" id="service"></div><h1 class="main__title">Service</h1><h3>Systemctl</h3> <p>Service creation on Linux is the same as for any Java application. You can see an example below.</p> <p>Create a file in the following path: <strong>/etc/systemd/system/tadam-project.service</strong>.</p> <p>Add the content.</p> <pre><code class="language-shell">[Unit]
 Description=Tadam-project
 After=network.target
 
@@ -364,7 +364,7 @@ ExecStart=java -jar tadam-project.jar
 WantedBy=multi-user.target 
 </code></pre> <p>Finally enable and start the service.</p> <pre><code class="language-shell">sudo systemctl enable tadam-project
 sudo systemctl start tadam-project
-</code></pre> </section><section><div class="mark" id="reverse"></div><h1 class="main__title">Reverse Proxy</h1><h3>Nginx</h3> <p>With Nginx it's pretty quick and easy. You can use it as a reverse proxy, since Glosa contains its own web server (Jetty). You can see an example of configuration that can be useful.</p> <pre><code class="language-shell">server {
+</code></pre> </section><section><div class="mark" id="reverse"></div><h1 class="main__title">Reverse Proxy</h1><h3>Nginx</h3> <p>Deploying with Nginx is pretty quick and easy. You can use it as a reverse proxy. Below you can see an example configuration that you might find useful.</p> <pre><code class="language-shell">server {
 
         server_name tadam.domain.com;
 
@@ -379,6 +379,6 @@ sudo systemctl start tadam-project
             proxy_redirect  off;
         }
 }
-</code></pre> </section><section class="donation"><div class="mark" id="donation"></div><h1 class="main__title">Donation</h1><p>Every drop of coffee is converted is multiplied by 2 and turned into <strong>training material in Clojure</strong> to bring the ecosystem closer to new developers. Can you help me make the community bigger?</p> <div class="donation__button"> <div class="content"> <script type="text/javascript" src="https://ko-fi.com/widgets/widget_2.js"></script> </div> </div> </section><section class="talks"><div class="mark" id="talks"></div><h1 class="main__title">Talks</h1><div class="talks__content"><h2>Charlando de desarrollo con Andros Fenollosa</h2> <h3>Spanish</h3> <iframe src="https://open.spotify.com/embed-podcast/episode/3MIQw97szANnTGR2jwgQ4d" width="100%" height="232" frameborder="0" allowtransparency allow="encrypted-media"></iframe> <h2>Tadam framework web en Clojure - República Web</h2> <h3>Spanish</h3> <iframe src="https://open.spotify.com/embed-podcast/episode/5aGhK2vajVRHgg9N6YsQHW" width="100%" height="232" frameborder="0" allowtransparency allow="encrypted-media"></iframe> <h2>PyConES20 - Introducción a la Programación Funcional con Python</h2> <h3>Spanish</h3> <iframe width="100%" height="315" src="https://www.youtube.com/embed/iRGHfE4rEuQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> </div></section><section class="success__stories"><div class="mark" id="success"></div><h1 class="main__title">Success stories</h1><p><a href="https://github.com/glosa/glosa-server"><img src="https://cdn.jsdelivr.net/gh/glosa/glosa-server/media/logo.png" alt="Glosa"></a></p> <p>Comments for static sites. Clone of Disqus, but faster, Opensource and sexy.</p> <h2>Do you want to know if a site is made with Tadam?</h2> <pre><code class="language-shell">curl -Is localhost:7404 | grep 'X-Powered-By:' 
+</code></pre> </section><section class="donation"><div class="mark" id="donation"></div><h1 class="main__title">Donation</h1><p>Every drop of coffee is transformed, multiplied by 2, and turned into <strong>teaching material in Clojure</strong> to bring the ecosystem closer to new developers. Are you ready to help me expand the community?</p> <div class="donation__button"> <div class="content"> <script type="text/javascript" src="https://ko-fi.com/widgets/widget_2.js"></script> </div> </div> </section><section class="talks"><div class="mark" id="talks"></div><h1 class="main__title">Talks</h1><div class="talks__content"><h2>Charlando de desarrollo con Andros Fenollosa</h2> <h3>Spanish</h3> <iframe src="https://open.spotify.com/embed-podcast/episode/3MIQw97szANnTGR2jwgQ4d" width="100%" height="232" frameborder="0" allowtransparency allow="encrypted-media"></iframe> <h2>Tadam framework web en Clojure - República Web</h2> <h3>Spanish</h3> <iframe src="https://open.spotify.com/embed-podcast/episode/5aGhK2vajVRHgg9N6YsQHW" width="100%" height="232" frameborder="0" allowtransparency allow="encrypted-media"></iframe> <h2>PyConES20 - Introducción a la Programación Funcional con Python</h2> <h3>Spanish</h3> <iframe width="100%" height="315" src="https://www.youtube.com/embed/iRGHfE4rEuQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> </div></section><section class="success__stories"><div class="mark" id="success"></div><h1 class="main__title">Success stories</h1><p><a href="https://github.com/glosa/glosa-server"><img src="https://cdn.jsdelivr.net/gh/glosa/glosa-server/media/logo.png" alt="Glosa"></a></p> <p>Comments for static sites. A clone of Disqus, but faster, Open Source and sexy.</p> <h2>Want to know if a site has been created on Tadam?</h2> <pre><code class="language-shell">curl -Is localhost:7404 | grep 'X-Powered-By:' 
 </code></pre> <p>👇</p> <pre><code class="language-shell">X-Powered-By: Clojure/Tadam
-</code></pre> </section><section class="success__stories"><div class="mark" id="thanks"></div><h1 class="main__title">Thanks</h1><p><a href="https://github.com/GetRawFish">Valentina Rubane</a>: Revision of texts in English.</p> </section><footer class="footer"><p>2021 Tadam Framework | Author: <a href="https://programadorwebvalencia.com/" target="_blank">Andros Fenollosa</a></p></footer></div></main></div><script>kofiwidget2.init("Help with a coffee","#29abe0","W7W02LB83"),kofiwidget2.draw();var e=window._paq=window._paq||[];e.push(["trackPageView"]),e.push(["enableLinkTracking"]),function(){var a="//matomo.andros.dev/";e.push(["setTrackerUrl",a+"matomo.php"]),e.push(["setSiteId","4"]);var t=document,i=t.createElement("script"),r=t.getElementsByTagName("script")[0];i.async=!0,i.src=a+"matomo.js",r.parentNode.insertBefore(i,r)}();</script><script defer src="/main.20511b48.js"></script></body></html>
+</code></pre> </section><section class="success__stories"><div class="mark" id="thanks"></div><h1 class="main__title">Thanks</h1><p><a href="https://github.com/GetRawFish">Valentina Rubane</a>: Editing of texts in English.</p> </section><footer class="footer"><p>2021 Tadam Framework | Author: <a href="https://programadorwebvalencia.com/" target="_blank">Andros Fenollosa</a></p></footer></div></main></div><script>kofiwidget2.init("Help with a coffee","#29abe0","W7W02LB83"),kofiwidget2.draw();var e=window._paq=window._paq||[];e.push(["trackPageView"]),e.push(["enableLinkTracking"]),function(){var a="//matomo.andros.dev/";e.push(["setTrackerUrl",a+"matomo.php"]),e.push(["setSiteId","4"]);var t=document,i=t.createElement("script"),r=t.getElementsByTagName("script")[0];i.async=!0,i.src=a+"matomo.js",r.parentNode.insertBefore(i,r)}();</script><script defer src="/main.20511b48.js"></script></body></html>
