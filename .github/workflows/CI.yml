@@ -26,7 +26,7 @@ jobs:
       run: |
         rm -rf docs
         parcel build index.pug --out-dir docs
-        echo "www.tadam-framework.dev" > docs/CNAME
+        echo "tadam-framework.andros.dev" > docs/CNAME
       
     - name: Deploy
       run: |
